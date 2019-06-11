@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Course from './Course';
+import {Route} from "react-router-dom";
+import {BrowserRouter} from "react-router-dom"
 import axios from 'axios';
 
 //hi there
@@ -17,11 +19,8 @@ class App extends Component {
   }
   componentDidMount()
   {
-    fetch('http://localhost:5000/courses')
-            .then(response=>response.json())
-            .then(data=>this.setState({
-              Course:data
-            }))
+    axios.get('http://localhost:5000/courses')
+            .then(response=>{this.setState({Course:response.data})})
      
   
   }
@@ -38,9 +37,13 @@ class App extends Component {
     
   
   return(
-    <div>
-       {Courses}
-    </div>
+      <BrowserRouter>
+        <div>
+          {Courses}
+        </div>
+        <Route path="/hi there" exact render={()=><h1>Home</h1>}/>
+            </BrowserRouter>
+
 
   )
   }
