@@ -1,27 +1,45 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import './Course.css'
+import axios from "axios";
 
 
 
-const Course=(props)=>
+const Course=props=>
 
 {
-    return(
-        <div className="Course">
-                <p>Name:{props.Name}</p>
-                <p>Volume:{props.Volume}</p>
-                <p>Length:{props.Length}</p>
-                <a href="http://www.varzesh3.com"><img src={props.picture}></img></a>
-                <p>Date:{props.Date}</p>
-                <video width="300" height="250" controls >
-                <source src="https://www.youtube.com/watch?v=r3ebOxltJ1w" type="video/mp4"/>
-                    </video>
-                <p>Tags:{props.Tags}</p>
+    const [Courses,SetCourses]=useState([]);
+    useEffect(()=>
+    {
+        axios.get('http://localhost:5000/courses')
+            .then(response=>{
+                console.log(response.data)
+                const Course=response.data;
+                const CourseList=[];
+              for (const key in Course)
+              {
+                  CourseList.push({id:key,name:Course[key].name,length:Course[key].length,volume:Course[key].volume,picture:Course[key].picture});
 
-            
-              
-    </div>
-    )
+              }
+                SetCourses(CourseList);
+            });
+
+    },[]);
+
+    return (
+
+        <div className="Course">
+
+                    {
+                    Courses.map(Course=>
+                    <img src={Course.picture}/>
+                    )}
+
+
+
+
+        </div>
+    );
+
 
 }
 export default Course
