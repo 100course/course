@@ -1,46 +1,30 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import {BrowserRouter as Router, Route} from 'react-router';
 import './App.css';
-import Course from "./Course"
-import {Route} from "react-router";
-import {BrowserRouter} from "react-router-dom";
+import UserPage from './component/UserPage';
+// import {Route} from "react-router";
+// import {BrowserRouter} from "react-router-dom";
+// import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 //hi there
 class App extends Component {
-  constructor()
-  {
-    super()
-    this.state={
-
-        
-
-      
+    constructor() {
+        super();
+        this.state = {}
     }
-  }
-  componentDidMount() {
 
-  }
+    componentDidMount() {
+    }
 
-  render()
- 
-  {
+    render() {
+        return (
+            //<Router>
+                <div>
+                    <UserPage/>
+                </div>
+            //</Router>
+        )
+    }
+}
 
-
-
-
-    
-  
-  return(
-
-
-        <div>
-          <BrowserRouter>
-          {<Route path=""  component={Course}/>}
-          </BrowserRouter>
-        </div>
-
-
-
-  )
-  }
-  }    
 export default App;
