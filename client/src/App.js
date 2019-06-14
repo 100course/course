@@ -1,48 +1,30 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import {BrowserRouter as Router, Route} from 'react-router';
 import './App.css';
-import Course from './Course';
-import axios from 'axios';
+import UserPage from './component/UserPage';
+// import {Route} from "react-router";
+// import {BrowserRouter} from "react-router-dom";
+// import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-
+//hi there
 class App extends Component {
-  constructor()
-  {
-    super()
-    this.state={
-      Course:[]
-        
-
-      
+    constructor() {
+        super();
+        this.state = {}
     }
-  }
-  componentDidMount()
-  {
-    fetch('http://localhost:5000/courses')
-            .then(response=>response.json())
-            .then(data=>this.setState({
-              Course:data
-            }))
-     
-  
-  }
-  render()
- 
-  {
-    const Courses=this.state.Course.map(course=>
-      {
-        return <Course key={course._id} Name={course.name} Volume={course.volume} Length={course.length}  Date={course.date} Tags={course.tags} picture={course.picture} />
-      })
 
+    componentDidMount() {
+    }
 
+    render() {
+        return (
+            //<Router>
+                <div>
+                    <UserPage/>
+                </div>
+            //</Router>
+        )
+    }
+}
 
-    
-  
-  return(
-    <div>
-       {Courses}
-    </div>
-
-  )
-  }
-  }    
 export default App;
