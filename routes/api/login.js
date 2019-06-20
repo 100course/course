@@ -16,6 +16,8 @@ router.get('/',
                 if(!isMatch)
                     return res.status(400).json({errors: [{msg: 'password or email is incorrect'}]});
 
+
+                user.password = undefined;
                 return res.json(user)
             } else {
                 return res.status(400).json({errors: [{msg: 'user doesnt exist'}]});
