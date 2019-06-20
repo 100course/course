@@ -24,6 +24,8 @@ app.get("/", (req, res) => {
 
 app.use("/videos", require('./routes/api/videos'));
 app.use("/courses", require('./routes/api/courses'));
+app.use('/user/register', require('./routes/api/register'));
+app.use('/user/login', require('./routes/api/login'));
 
 PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`server running on port : ${PORT}`));
