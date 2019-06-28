@@ -1,30 +1,23 @@
-import React, {Component} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router';
 import './App.css';
-import UserPage from './component/UserPage';
+import React from 'react';
+
 // import {Route} from "react-router";
 // import {BrowserRouter} from "react-router-dom";
 // import {BrowserRouter as Router, Route} from 'react-router-dom';
+//redux
+import {Provider} from 'react-redux';
+import store from './store'
+import {Fragment} from "react";
 
-//hi there
-class App extends Component {
-    constructor() {
-        super();
-        this.state = {}
-    }
+const App = () => {
+    return (
 
-    componentDidMount() {
-    }
+        <Provider
+            store={store}>
 
-    render() {
-        return (
-            //<Router>
-                <div>
-                    <UserPage/>
-                </div>
-            //</Router>
-        )
-    }
+        </Provider>
+
+    )
 }
-
 export default App;
