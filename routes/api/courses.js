@@ -4,6 +4,8 @@ const router = express.Router();
 const Video = require('../../models/video');
 const Course = require('../../models/course');
 const mongoose = require('mongoose');
+const User = require('../../models/user');
+
 
 
 router.get('/', async (req, res)=> {
@@ -139,6 +141,23 @@ router.get("/id/:id", async (req, res) => {
             res.status(500).send('server error');
         }
     }
+});
+
+
+router.get("/userid", async (req, res) => {
+    try{
+        const {userId} = req.body;
+        const user = await User.findById(userId);
+        const courseIds = user.courses;
+        console.log(courseIds);
+        return res.json(courseIds);
+    } catch (err) {
+        if(err) {
+            console.error(err.message);
+            res.status(500).send('server error');
+        }
+    }
+
 });
 
 

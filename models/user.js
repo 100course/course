@@ -34,7 +34,13 @@ const UserSchema = new mongoose.Schema({
                 required: true
             }
         }
-        ]
+        ],
+    courses: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'course'
+        }
+    ]
 
 
 });

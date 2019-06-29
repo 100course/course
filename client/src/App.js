@@ -24,6 +24,7 @@ const App = () => {
                     <Alert/>
                     <Switch>
                         <Route exact path={'/register'} component={Register} />
+                        <Route path={'/userPage'} component={UserPage}/>
                     </Switch>
                 </section>
             </div>
