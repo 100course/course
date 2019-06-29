@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
@@ -7,17 +8,19 @@ import Main from './component/Main';
 // import {Route} from "react-router";
 // import {BrowserRouter} from "react-router-dom";
 // import {BrowserRouter as Router, Route} from 'react-router-dom';
+//redux
+import {Provider} from 'react-redux';
+import store from './store'
+import {Fragment} from "react";
 
-//hi there
-class App extends Component {
-    constructor() {
-        super();
-        this.state = {}
-    }
+const App = () => {
+    return (
 
-    componentDidMount() {
-    }
+        <Provider
+            store={store}>
 
+
+        </Provider>
     render() {
         return (
             <Router>
@@ -34,4 +37,6 @@ class App extends Component {
     }
 }
 
+    )
+}
 export default App;

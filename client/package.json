@@ -8,7 +8,11 @@
     "react-dom": "^16.8.6",
     "react-scripts": "0.9.5",
     "react-router": "^5.0.1",
-    "react-router-dom": "^5.0.1"
+    "react-router-dom": "^5.0.1",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "react-redux": "^7.1.0"
   },
   "devDependencies": {
     "body-parser": "^1.19.0",
