@@ -18,13 +18,13 @@ const Register = ({setAlert}) => {
     };
     const onSubmit = (e) => {
         e.preventDefault();
-        if(password !== password2) {
+        if (password !== password2) {
             setAlert('passwords do not match', 'danger');
         } else {
             console.log(formData);
         }
         let formDataToServer = {
-            username : formData.username,
+            username: formData.username,
             email: formData.email,
             password: formData.password
         };
@@ -33,6 +33,17 @@ const Register = ({setAlert}) => {
                 console.log('from server');
                 console.log(response.data);
             })
+            .catch(err => {
+                if (err.response) {
+                    console.log(" in if");
+                    err.response.data.errors.map(error => {
+                        console.log(error.msg);
+                        setAlert(error.msg);
+                    });
+                } else {
+                    console.log("in else");
+                }
+            });
     };
 
     return(
