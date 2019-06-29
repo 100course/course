@@ -15,28 +15,18 @@ import {Fragment} from "react";
 
 const App = () => {
     return (
-
-        <Provider
-            store={store}>
-
-
-        </Provider>
-    render() {
-        return (
+        <Provider store={store}>
             <Router>
-                <div>
-                    <Route exact path='/' component={Main} />
-                    <section className="container">
-                        <Switch>
-                            <Route exact path={'/register'} component={Register} />
-                        </Switch>
-                    </section>
-                </div>
+            <div>
+                <Route exact path='/' component={Main} />
+                <section className="container">
+                    <Switch>
+                        <Route exact path={'/register'} component={Register} />
+                    </Switch>
+                </section>
+            </div>
             </Router>
-        )
-    }
-}
-
+        </Provider>
     )
 }
 export default App;
