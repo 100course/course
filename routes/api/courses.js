@@ -149,8 +149,10 @@ router.get("/userid", async (req, res) => {
         const {userId} = req.body;
         const user = await User.findById(userId);
         const courseIds = user.courses;
-        console.log(courseIds);
-        return res.json(courseIds);
+        const course = await Course.findById(courseIds);
+        const video_Ids = course.videos;
+        let videos = await Video.find({'_id':video_Ids});
+        res.json(videos);
     } catch (err) {
         if(err) {
             console.error(err.message);
