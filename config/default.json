@@ -1,3 +1,4 @@
 {
-  "mongoURI" : "mongodb://courseir_user:5sky8ZY0p4@88.99.137.102:27017/courseir_db"
+  "mongoURI" : "mongodb://courseir_user:5sky8ZY0p4@88.99.137.102:27017/courseir_db",
+  "jwtToken" : "amirSecretToken"
 }
