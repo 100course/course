@@ -4,6 +4,8 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const User = require('../../models/user');
+const config = require('config');
+const jwt = require('jsonwebtoken');
 
 
 router.get('/',
@@ -17,8 +19,19 @@ router.get('/',
                     return res.status(400).json({errors: [{msg: 'password or email is incorrect'}]});
 
 
-                user.password = undefined;
-                return res.json(user)
+                const payload = {
+                    user: {
+                        id: user.id
+                    }
+                };
+                jwt.sign(payload,
+                    config.get('jwtToken'),
+                    {expiresIn: 3600},
+                    (err, token) => {
+                        if(err)
+                            throw err;
+                        res.json({token});
+                    });
             } else {
                 return res.status(400).json({errors: [{msg: 'user doesnt exist'}]});
             }
