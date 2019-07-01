@@ -1,40 +1,30 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import {connect} from "react-redux";
 import {setAlert} from "../actions/alert";
-import {register} from "../actions/auth";
+import {login} from "../actions/auth";
 import PropTypes from 'prop-types';
 
-const Register = ({setAlert, register}) => {
+const Login = ({setAlert, login}) => {
     const [formData, setFormData] = useState({
-        username: '',
-        email: '',
         password: '',
-        password2: ''
+        email: ''
     });
 
-    const {username, email, password, password2} = formData;
+    const { email, password} = formData;
     const onChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value});
     };
     const onSubmit = (e) => {
         e.preventDefault();
-        if (password !== password2) {
-            setAlert('Passwords do not match!', 'danger');
-
-        } else {
-            register({username, email, password})
-        }
+        login({email,password});
 
     };
 
     return (
         <Fragment>
             <h1 className="large text-primary">Sign Up</h1>
-            <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
+            <p className="lead"><i className="fas fa-user"></i> log in</p>
             <form className="form" onSubmit={e => onSubmit(e)}>
-                <div className="form-group">
-                    <input type="text" placeholder="Name" name="username" value={username} onChange={e => onChange(e)}/>
-                </div>
                 <div className="form-group">
                     <input type="email" placeholder="Email Address" name="email" value={email}
                            onChange={e => onChange(e)}/>
@@ -53,29 +43,21 @@ const Register = ({setAlert, register}) => {
                         value={password} onChange={e => onChange(e)}
                     />
                 </div>
-                <div className="form-group">
-                    <input
-                        type="password"
-                        placeholder="Confirm Password"
-                        name="password2"
-                        //minLength="6"
-                        value={password2} onChange={e => onChange(e)}
-                    />
-                </div>
-                <input type="submit" className="btn btn-primary" value="Register"/>
+                <input type="submit" className="btn btn-primary" value="Login"/>
             </form>
             <p className="my-1">
-                Already have an account? <a href="login.html">Sign In</a>
+                Already have an account? <a href="login.html">Sign up</a>
             </p>
         </Fragment>
     );
 
 };
 
-Register.propTypes = {
+Login.propTypes = {
     setAlert: PropTypes.func.isRequired,
-    register: PropTypes.func.isRequired
+    login: PropTypes.func.isRequired
 };
 
+export default connect(null, {setAlert,login})(Login);
 
-export default connect(null, {setAlert,register})(Register);
+
