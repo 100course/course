@@ -32,17 +32,22 @@ export const register = ({username, email, password}) => async dispatch => {
     }
 };
 
-
+//Login
 export const login = ({email, password}) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
         }
     };
-    const body = JSON.stringify({email, password});
-    console.log("sending theis to server: " ,body);
+    const body = {
+        email,
+        password
+    };
+    console.log("sending this to server: " ,body);
     try {
-        const res = await axios.get('http://localhost:5000/user/login',body, config);
+        const res = await axios.post('http://localhost:5000/user/login', body, config);
+        console.log("result: ", res.data);
+
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
