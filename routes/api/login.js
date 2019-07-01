@@ -8,7 +8,10 @@ const config = require('config');
 const jwt = require('jsonwebtoken');
 
 
-router.get('/',
+router.post('/', [
+        check('email', 'valid email is required').not().isEmpty().isEmail(),
+        check('password', 'password is required').not().isEmpty()
+    ],
     async (req, res) => {
         try {
             const {email, password} = req.body;
@@ -32,7 +35,7 @@ router.get('/',
                             throw err;
                         res.json({token});
                     });
-            } else {
+            } else{
                 return res.status(400).json({errors: [{msg: 'user doesnt exist'}]});
             }
 
