@@ -15,8 +15,6 @@ router.get('/',
                 const isMatch = await bcrypt.compare(password,user.password);
                 if(!isMatch)
                     return res.status(400).json({errors: [{msg: 'password or email is incorrect'}]});
-
-
                 user.password = undefined;
                 return res.json(user)
             } else {

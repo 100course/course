@@ -13,6 +13,7 @@ import Main from './component/Main';
 import {Provider} from 'react-redux';
 import store from './store'
 import {Fragment} from "react";
+import Login from "./component/Login";
 
 const App = () => {
     return (
@@ -24,6 +25,7 @@ const App = () => {
                     <Alert/>
                     <Switch>
                         <Route exact path={'/register'} component={Register} />
+                        <Route exact path={'/login'} component={Login} />
                     </Switch>
                 </section>
             </div>

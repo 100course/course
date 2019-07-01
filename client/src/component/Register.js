@@ -1,5 +1,4 @@
 import React, {useState, useEffect, Fragment} from 'react';
-import axios from 'axios';
 import {connect} from "react-redux";
 import {setAlert} from "../actions/alert";
 import {register} from "../actions/auth";
@@ -23,7 +22,7 @@ const Register = ({setAlert, register}) => {
             setAlert('Passwords do not match!', 'danger');
 
         } else {
-            register({name, email, password})
+            register({username, email, password})
         }
 
     };

@@ -1,14 +1,13 @@
 import React, {useState, useEffect, Fragment} from 'react';
-import axios from 'axios';
 import {connect} from "react-redux";
 import {setAlert} from "../actions/alert";
-import {register} from "../actions/auth";
+import {login} from "../actions/auth";
 import PropTypes from 'prop-types';
 
-const Register = ({setAlert, register}) => {
+const Login = ({setAlert, login}) => {
     const [formData, setFormData] = useState({
-        username: '',
-        email: '',
+        password: '',
+        email: ''
     });
 
     const { email, password} = formData;
@@ -16,14 +15,15 @@ const Register = ({setAlert, register}) => {
         setFormData({...formData, [e.target.name]: e.target.value});
     };
     const onSubmit = (e) => {
-
+        e.preventDefault();
+        login({email,password});
 
     };
 
     return (
         <Fragment>
             <h1 className="large text-primary">Sign Up</h1>
-            <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
+            <p className="lead"><i className="fas fa-user"></i> log in</p>
             <form className="form" onSubmit={e => onSubmit(e)}>
                 <div className="form-group">
                     <input type="email" placeholder="Email Address" name="email" value={email}
@@ -52,5 +52,12 @@ const Register = ({setAlert, register}) => {
     );
 
 };
+
+Login.propTypes = {
+    setAlert: PropTypes.func.isRequired,
+    login: PropTypes.func.isRequired
+};
+
+export default connect(null, {setAlert,login})(Login);
 
 
