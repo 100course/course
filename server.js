@@ -1,9 +1,17 @@
 const express = require("express");
 const connectDB = require('./config/db');
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
+
 
 const app = express();
 // connect to database by server
 connectDB();
+
+
+//live session
+app.use(cookieParser());
+
 
 // init middleware
 
@@ -26,6 +34,7 @@ app.use("/videos", require('./routes/api/videos'));
 app.use("/courses", require('./routes/api/courses'));
 app.use('/user/register', require('./routes/api/register'));
 app.use('/user/login', require('./routes/api/login'));
+app.use('/user/dashboard', require('./routes/api/dashboard'));
 
 PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`server running on port : ${PORT}`));
