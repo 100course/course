@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {REGISTER_FAIL,REGISTER_SUCCESS, LOGIN_SUCCESS, LOGIN_FAIL} from "./types";
+import {REGISTER_FAIL, REGISTER_SUCCESS, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT} from "./types";
 import {setAlert} from "./alert";
 
 export const register = ({username, email, password}) => async dispatch => {
@@ -14,15 +14,13 @@ export const register = ({username, email, password}) => async dispatch => {
         password
     };
     try {
-
         const res = await axios.post('http://localhost:5000/user/register', body, config);
-        console.log("res",res.data);
         dispatch({
             type:REGISTER_SUCCESS,
             payload:res.data
         });
-    } catch (err) {
-        console.log("eroor : ", err);
+    } catch
+        (err) {
         const errors=err.response.data.errors;
         if(errors)
         {
@@ -48,6 +46,7 @@ export const login = ({email, password}) => async dispatch => {
     console.log("sending this to server: " ,body);
     try {
         const res = await axios.post('http://localhost:5000/user/login', body, config);
+
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
@@ -62,4 +61,13 @@ export const login = ({email, password}) => async dispatch => {
             type:LOGIN_FAIL
         })
     }
+
 };
+   export const logout=()=>dispatch=>
+   {
+       dispatch({
+           type:LOGOUT
+       })
+   }
+
+//Logout

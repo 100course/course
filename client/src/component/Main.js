@@ -8,7 +8,7 @@ function Main() {
                 <button type='button'> register </button>
             </Link>
             <Link to='/Login'>
-                <button type='button'> login </button>
+                <button type='button'> Login </button>
             </Link>
         </div>
     );

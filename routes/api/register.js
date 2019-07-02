@@ -16,7 +16,6 @@ router.post('/',
     ],
     async (req, res) => {
         try {
-            console.log(req.body);
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
                 return res.status(400).json({errors: errors.array()});
@@ -43,7 +42,6 @@ router.post('/',
                     id: user.id
                 }
             };
-            console.log("payload: ",payload);
             jwt.sign(payload,
                 config.get('jwtToken'),
                 {expiresIn: 3600},
