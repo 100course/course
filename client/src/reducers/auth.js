@@ -12,7 +12,7 @@ export default function (state = initialState, action) {
     const {type, payload} = action;
     switch (type) {
         case REGISTER_SUCCESS:
-            localStorage.setIem('token', payload.token);
+            localStorage.setItem('token', payload.token);
             return {
                 ...state,
                 ...payload,
@@ -28,7 +28,6 @@ export default function (state = initialState, action) {
                 loading: false
             };
         case LOGIN_SUCCESS:
-            console.log("payload_data: " ,payload.data);
             localStorage.setItem('token', payload.data);
             return ({
                 ...state,

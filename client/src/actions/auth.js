@@ -14,13 +14,15 @@ export const register = ({username, email, password}) => async dispatch => {
         password
     };
     try {
+
         const res = await axios.post('http://localhost:5000/user/register', body, config);
+        console.log("res",res.data);
         dispatch({
             type:REGISTER_SUCCESS,
             payload:res.data
         });
-    } catch
-        (err) {
+    } catch (err) {
+        console.log("eroor : ", err);
         const errors=err.response.data.errors;
         if(errors)
         {
@@ -46,8 +48,6 @@ export const login = ({email, password}) => async dispatch => {
     console.log("sending this to server: " ,body);
     try {
         const res = await axios.post('http://localhost:5000/user/login', body, config);
-        console.log("result: ", res.data);
-
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
