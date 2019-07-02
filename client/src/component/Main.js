@@ -7,6 +7,9 @@ function Main() {
             <Link to='/Register'>
                 <button type='button'> register </button>
             </Link>
+            <Link to='/Login'>
+                <button type='button'> login </button>
+            </Link>
         </div>
     );
 }
