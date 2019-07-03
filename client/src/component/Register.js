@@ -76,7 +76,7 @@ const Register = ({setAlert, register,isAuthenticated}) => {
 };
 const mapStateToProps=state=>({
     isAuthenticated:state.auth.isAuthenticated
-})
+});
 
 Register.propTypes = {
     setAlert: PropTypes.func.isRequired,
