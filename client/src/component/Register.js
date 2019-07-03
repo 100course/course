@@ -14,9 +14,7 @@ const Register = ({setAlert, register,isAuthenticated}) => {
     });
 
     const {username, email, password, password2} = formData;
-    const onChange = (e) => {
-        setFormData({...formData, [e.target.name]: e.target.value});
-    };
+
     const onSubmit = (e) => {
         e.preventDefault();
         if (password !== password2) {
@@ -27,8 +25,11 @@ const Register = ({setAlert, register,isAuthenticated}) => {
         }
 
     };
+    const onChange = (e) => {
+        setFormData({...formData, [e.target.name]: e.target.value});
+    };
     if(isAuthenticated)
-    return (<Redirect to={"/dashboard"}/>)
+        return (<Redirect to={"/dashboard"}/>);
 
     return (
         <Fragment>

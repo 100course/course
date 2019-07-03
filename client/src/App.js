@@ -16,6 +16,7 @@ import Dashboard from "./component/Dashboard";
 import PrivateRoute from "./component/routing/PrivateR";
 import setAuthToken from "./utils/setAuthToken";
 import {loadUser} from "./actions/auth";
+import AddCourse from "./component/AddCourse";
 
 
 if(localStorage.token){
@@ -39,6 +40,7 @@ const App = () => {
                             <Route exact path={'/register'} component={Register}/>
                             <Route exact path={'/login'} component={Login}/>
                             <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
+                            <Route exact path={'/addcourse'} component={AddCourse}/>
                         </Switch>
                     </section>
                 </Fragment>
