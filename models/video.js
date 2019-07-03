@@ -26,12 +26,12 @@ const VideoSchema = new mongoose.Schema ({
         type: String,
         required: true
     },
-    course: {
-        type: String,
-        required: true
-    },
     number: {
         type: Number,
+        required: true
+    },
+    course: {
+        type: String,
         required: true
     },
     date: {

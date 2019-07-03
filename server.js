@@ -35,6 +35,7 @@ app.use("/courses", require('./routes/api/courses'));
 app.use('/user/register', require('./routes/api/register'));
 app.use('/user/login', require('./routes/api/login'));
 app.use('/user/dashboard', require('./routes/api/dashboard'));
+app.use('/add', require('./routes/api/add'));
 
 
 
