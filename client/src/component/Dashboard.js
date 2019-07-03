@@ -5,11 +5,11 @@ import {logout} from "../actions/auth";
 import {Redirect} from "react-router";
 import {Link} from "react-router-dom";
 
-const style=
+const style =
     {
-        textAlign:'center'
+        textAlign: 'center'
     };
-const Dashboard=({logout})=> {
+const Dashboard = ({logout, user}) => {
 
 
     {
@@ -17,19 +17,28 @@ const Dashboard=({logout})=> {
             <Fragment>
                 <h1 style={style}>
                     Welcome to Unicourses
-                    <Link to={'/login'}>
-                    <button onClick={logout}>Logout</button>
-                    </Link>
                 </h1>
+                <p style={style}>Your username is {user.username}</p>
+                <p style={style}>Your email is {user.email}</p>
+
+                <Link to={'/login'}>
+                    <button onClick={logout}>Logout</button>
+                </Link>
             </Fragment>
 
         )
+
     }
 }
-Dashboard.proptypes=
-{
-    logout:PropTypes.func.isRequired
-};
+Dashboard.proptypes =
+    {
+        logout: PropTypes.func.isRequired,
+        user: PropTypes.object.isRequired
+    };
+const mapStateToProps = state =>
+({
+user:state.auth.user
 
+})
 
-export default connect(null,{logout})(Dashboard);
+export default connect(mapStateToProps, {logout})(Dashboard);
