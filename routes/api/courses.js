@@ -54,26 +54,29 @@ router.post('/', [
     ],
     async (req, res)=> {
         try {
-            let videosToSave = [];
+            data = req.body;
             let video_ids = [];
+            let video = [];
             const errors = validationResult(req);
             if(!errors.isEmpty()){
                 return res.status(400).json({errors: errors.array()});
             }
-            const {videos, name, tags, length, volume, picture} = req.body;
-            videos.forEach((_video)=>{
-                let video = new Video({
-                    name: _video.name,
-                    link: _video.link,
-                    tags: _video.tags,
-                    subtitle: _video.subtitle,
-                    length: _video.length,
-                    volume: _video.volume,
-                    picture: _video.picture
-                });
-                videosToSave.push(video);
+            const {name, tags, length, volume, picture, text, videos} = data;
+
+            videos.forEach(vid => {
+                const {name, link, subtitle, tags, length, volume, picture, number} = vid;
+                video.push(new Video({
+                    name,
+                    link,
+                    subtitle,
+                    tags,
+                    length,
+                    volume,
+                    picture,
+                    number
+                }));
             });
-            let {insertedIds,insertedCount} = await Video.collection.insertMany(videosToSave);
+            let {insertedIds,insertedCount} = await Video.collection.insertMany(video);
             for (let i = 0; i < insertedCount; i++)
             {
                 video_ids.push(insertedIds[i]);
@@ -82,13 +85,14 @@ router.post('/', [
             if(course){
                 return res.status(400).json({errors : [{msg: 'course already exist'}]});
             }
-            course = new Course({
-                "videos": video_ids,
+            course = new Course ({
                 name,
                 tags,
                 length,
                 volume,
-                picture
+                picture,
+                text,
+                videos: video_ids
             });
             await course.save();
             res.send(course);

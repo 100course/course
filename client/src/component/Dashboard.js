@@ -29,7 +29,7 @@ const Dashboard = ({logout, user}) => {
         )
 
     }
-}
+};
 Dashboard.proptypes =
     {
         logout: PropTypes.func.isRequired,
