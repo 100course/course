@@ -7,6 +7,8 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const USER_LOADED = 'USER_LOADED';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const LOGOUT='LOGOUT';
+export const COURSE_SAVED = 'COURSE_SAVED';
+export const VIDEO_SAVED = 'VIDEO_SAVED';
 
 
 

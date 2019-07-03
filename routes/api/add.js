@@ -18,8 +18,8 @@ router.post('/course', async (req, res) => {
         picture,
         text,
     });
-    await course.save();
-    res.send("course saved");
+    let result = await course.save();
+    res.send(result.id);
 });
 
 router.post('/video', async (req, res) => {
