@@ -20,7 +20,7 @@ export default function (state = initialState, action) {
             };
         case REGISTER_SUCCESS:
             localStorage.setItem('token', payload.token);
-            console.log("register payload token : ", payload.token);
+
             return {
                 ...state,
                 ...payload,
@@ -37,7 +37,7 @@ export default function (state = initialState, action) {
                 loading: false
             };
         case LOGIN_SUCCESS:
-            console.log("payload_data: " ,payload.token);
+
             localStorage.setItem('token', payload.token);
             return ({
                 ...state,

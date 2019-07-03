@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-
 import Course from './Course';
 import axios from "axios";
 
