@@ -23,17 +23,17 @@ const PrivateRoute =({
 
 
 
-    PrivateRoute.prototype =
+    PrivateRoute.proptypes =
         {
             auth: PropTypes.object.isRequired
-        }
+        };
 
 
 const mapStateToProps = state =>
     ({
         auth: state.auth
 
-    })
+    });
 
 
 export default connect(mapStateToProps)(PrivateRoute)

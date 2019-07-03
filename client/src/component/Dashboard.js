@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 const style=
     {
         textAlign:'center'
-    }
+    };
 const Dashboard=({logout})=> {
 
 
@@ -26,10 +26,10 @@ const Dashboard=({logout})=> {
         )
     }
 }
-Dashboard.prototype
+Dashboard.proptypes=
 {
     logout:PropTypes.func.isRequired
-}
+};
 
 
 export default connect(null,{logout})(Dashboard);
