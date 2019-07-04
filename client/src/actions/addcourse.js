@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {COURSE_SAVED, VIDEO_SAVED} from "./types";
+import {COURSE_SAVED, COURSE_FAILED} from "./types";
 
 export const addCourse = ({name, tag, length, volume, picture, text, video}) => async dispatch => {
     const config = {
@@ -25,7 +25,7 @@ export const addCourse = ({name, tag, length, volume, picture, text, video}) => 
         });
     } catch (err) {
         dispatch({
-            type: VIDEO_SAVED
+            type: COURSE_FAILED
         })
     }
 };

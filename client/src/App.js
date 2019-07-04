@@ -1,20 +1,20 @@
 import React, {Component,Fragment,useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
-import UserPage from './component/UserPage';
+//Components
+
 import Register from "./component/Register";
 import Alert from "./component/alert";
 import Main from './component/Main';
 import AddCourse from './component/AddCourse';
-// import {Route} from "react-router";
-// import {BrowserRouter} from "react-router-dom";
-// import {BrowserRouter as Router, Route} from 'react-router-dom';
-//redux
-import {Provider} from 'react-redux';
+import AddVideo from './component/AddVideo'
 import store from './store'
 import Login from "./component/Login";
 import Dashboard from "./component/Dashboard";
 import PrivateRoute from "./component/routing/PrivateR";
+
+//redux
+import {Provider} from 'react-redux';
 import setAuthToken from "./utils/setAuthToken";
 import {loadUser} from "./actions/auth";
 
@@ -40,7 +40,9 @@ const App = () => {
                             <Route exact path={'/register'} component={Register}/>
                             <Route exact path={'/login'} component={Login}/>
                             <Route exact path={'/addcourse'} component={AddCourse}/>
+                            <Route exact path={'/addvideo'} component={AddVideo}/>
                             <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
+
                         </Switch>
                     </section>
                 </Fragment>
