@@ -49,4 +49,22 @@ router.post('/video', async (req, res) => {
     res.send("successful");
 });
 
+
+router.post('/courseearch', async (req, res) => {
+    try{
+    const data = req.body;
+    const searchQuery = data.searchquery;
+    const regex = new RegExp(searchQuery);
+    let courses = [];
+    const result = await Course.find({name:regex}).sort({date:1}).limit(3);
+    result.forEach(course => {
+        courses.push(course.name);
+    });
+    res.status(200).json(courses);
+    } catch (e) {
+        return res.status(500).json({msg: "server error"});
+    }
+
+});
+
 module.exports = router;
