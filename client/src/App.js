@@ -10,7 +10,6 @@ import AddCourse from './component/AddCourse';
 
 import ModifyCourse from './component/ModifyCourse';
 
-import {Provider} from 'react-redux';
 
 import AddVideo from './component/AddVideo'
 

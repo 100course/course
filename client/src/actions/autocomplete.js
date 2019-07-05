@@ -13,7 +13,6 @@ export const autoComplete = ({name, type}) => async dispatch => {
     };
     try {
         const res = await axios.post('http://localhost:5000/search', body,config);
-        console.log("auto complete : ", res.data);
         dispatch({
             type:AUTOCOMPLETE,
             payload:res.data
