@@ -36,6 +36,8 @@ app.use('/user/register', require('./routes/api/register'));
 app.use('/user/login', require('./routes/api/login'));
 app.use('/user/dashboard', require('./routes/api/dashboard'));
 app.use('/add', require('./routes/api/add'));
+app.use('/modify', require('./routes/api/modify'));
+app.use ('/search', require('./routes/api/search'));
 
 
 

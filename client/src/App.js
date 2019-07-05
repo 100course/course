@@ -7,7 +7,13 @@ import Register from "./component/Register";
 import Alert from "./component/alert";
 import Main from './component/Main';
 import AddCourse from './component/AddCourse';
+
+import ModifyCourse from './component/ModifyCourse';
+
+import {Provider} from 'react-redux';
+
 import AddVideo from './component/AddVideo'
+
 import store from './store'
 import Login from "./component/Login";
 import Dashboard from "./component/Dashboard";
@@ -40,7 +46,11 @@ const App = () => {
                             <Route exact path={'/register'} component={Register}/>
                             <Route exact path={'/login'} component={Login}/>
                             <Route exact path={'/addcourse'} component={AddCourse}/>
+
+                            <Route exact path={'/modifycourse'} component={ModifyCourse}/>
+
                             <Route exact path={'/addvideo'} component={AddVideo}/>
+
                             <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
 
                         </Switch>
