@@ -1,19 +1,17 @@
-import {COURSE_SAVED, VIDEO_SAVED} from '../actions/types';
+import {AUTOCOMPLETE} from "../actions/types";
 
 const initialState = {
-    id: ''
+    suggestions: []
 };
 
 export default function (state = initialState, action) {
     const {type, payload} = action;
     switch (type) {
-        case COURSE_SAVED:
+        case AUTOCOMPLETE:
             return {
                 ...state,
-                id: payload
+                suggestions: payload
             };
-        case VIDEO_SAVED:
-            return state;
         default:
             return state;
     }

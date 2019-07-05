@@ -9,6 +9,8 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 export const LOGOUT='LOGOUT';
 export const COURSE_SAVED = 'COURSE_SAVED';
 export const VIDEO_SAVED = 'VIDEO_SAVED';
+export const MODIFY_COURSE = 'MODIFY_COURSE';
+export const AUTOCOMPLETE = "AUTOCOMPLETE";
 
 
 

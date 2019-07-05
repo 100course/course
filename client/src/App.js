@@ -6,6 +6,7 @@ import Register from "./component/Register";
 import Alert from "./component/alert";
 import Main from './component/Main';
 import AddCourse from './component/AddCourse';
+import ModifyCourse from './component/ModifyCourse';
 // import {Route} from "react-router";
 // import {BrowserRouter} from "react-router-dom";
 // import {BrowserRouter as Router, Route} from 'react-router-dom';
@@ -40,6 +41,7 @@ const App = () => {
                             <Route exact path={'/register'} component={Register}/>
                             <Route exact path={'/login'} component={Login}/>
                             <Route exact path={'/addcourse'} component={AddCourse}/>
+                            <Route exact path={'/modifycourse'} component={ModifyCourse}/>
                             <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
                         </Switch>
                     </section>
