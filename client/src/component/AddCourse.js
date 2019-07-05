@@ -37,7 +37,7 @@ const AddCourse = ({id, addCourse}) => {
                     <input type="number" placeholder="volume" name="volume" value={volume} onChange={e => onChange(e)}/>
                 </div>
                 <div>
-                    <input type="text" placeholder="picture" name="picture" value={picture} onChange={e => onChange(e)}/>
+                    <input type="url" placeholder="picture" name="picture" value={picture} onChange={e => onChange(e)}/>
                 </div>
                 <div>
                     <input type="text" placeholder="text" name="text" value={text} onChange={e => onChange(e)}/>
@@ -52,8 +52,8 @@ const AddCourse = ({id, addCourse}) => {
     );
 };
 
-AddCourse.PropTypes = {
-    id: PropTypes.object.isRequireds,
+AddCourse.propTypes = {
+    id: PropTypes.string.isRequired,
     addCourse: PropTypes.func.isRequired
 };
 
