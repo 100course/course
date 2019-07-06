@@ -148,7 +148,9 @@ router.get("/id/:id", async (req, res) => {
 
 router.post("/id", async (req, res) => {
     try {
+
         const id = req.body.id;
+        console.log("course ids: " , id);
         console.log(id);
         const course = await Course.findById(id);
         const video_Ids = course.videos;

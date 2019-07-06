@@ -35,7 +35,7 @@ const Dashboard = ({logout, user}) => {
 Dashboard.proptypes =
     {
         logout: PropTypes.func.isRequired,
-        user: PropTypes.object.isRequired,
+        user: PropTypes.object.isRequired
     };
 const mapStateToProps = state =>
 ({

@@ -6,17 +6,17 @@ import propTypes from "prop-types";
 import {getcourse} from "../actions/getcourse";
 
 
+
 const Course = ({picture, getcourse,user}) => {
     const [Courses, SetCourses] = useState([]);
     let ids = null;
     useEffect(() => {
+        console.log(user);
         ids = user.courses;
-
+        console.log("ids: ", ids);
+        getcourse({ids});
     }, []);
 
-    const coursePage = (e) => {
-        e.preventDefault();
-    };
     return (
 
             <div className="Course">
@@ -26,15 +26,14 @@ const Course = ({picture, getcourse,user}) => {
 };
 
 Course.propTypes = {
-    picture: propTypes.object.isRequired,
+    picture: propTypes.array.isRequired,
     getcourse: propTypes.func.isRequired,
     user: propTypes.object.isRequired
 };
-const mapStateToPropsPicture = state => {
-    picture: state.getcourse.picture
-};
-const mapStateToPropsUser = state => {
+const mapStateToProps = state => ({
+    picture: state.getcourse.picture,
     user: state.auth.user
-};
+});
 
-export default connect(mapStateToPropsPicture,mapStateToPropsUser,{getcourse})(Course);
+
+export default connect(mapStateToProps,{getcourse})(Course);
