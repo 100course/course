@@ -19,6 +19,7 @@ import PrivateRoute from "./component/routing/PrivateR";
 import {Provider} from 'react-redux';
 import setAuthToken from "./utils/setAuthToken";
 import {loadUser} from "./actions/auth";
+import Course from "./component/Course";
 
 
 if(localStorage.token){
@@ -42,7 +43,7 @@ const App = () => {
                             <Route exact path={'/register'} component={Register}/>
                             <Route exact path={'/login'} component={Login}/>
                             <Route exact path={'/addcourse'} component={AddCourse}/>
-
+                            <Route exact path={'/course'} component={Course}/>}
                             <Route exact path={'/modifycourse'} component={ModifyCourse}/>
 
                             <Route exact path={'/addvideo'} component={AddVideo}/>

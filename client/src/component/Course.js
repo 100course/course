@@ -8,8 +8,9 @@ import {getcourse} from "../actions/getcourse";
 
 const Course = ({picture, getcourse,user}) => {
     const [Courses, SetCourses] = useState([]);
+    let ids = null;
     useEffect(() => {
-        const ids = user.courses;
+        ids = user.courses;
 
     }, []);
 
@@ -19,11 +20,7 @@ const Course = ({picture, getcourse,user}) => {
     return (
 
             <div className="Course">
-                {
-                    Courses.map(Course =>
-                        <img src={Course.picture}/>
-                    )}
-                <button className="btn" type="button" onSubmit={coursePage}> go to course</button>
+                {ids}
             </div>
     );
 };
@@ -33,9 +30,11 @@ Course.propTypes = {
     getcourse: propTypes.func.isRequired,
     user: propTypes.object.isRequired
 };
-const mapStateToProps = state => {
-    picture: state.getcourse.picture,
+const mapStateToPropsPicture = state => {
+    picture: state.getcourse.picture
+};
+const mapStateToPropsUser = state => {
     user: state.auth.user
-}
+};
 
-export default connect(mapStateToProps,{getcourse})(Course);
+export default connect(mapStateToPropsPicture,mapStateToPropsUser,{getcourse})(Course);
