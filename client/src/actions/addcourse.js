@@ -1,4 +1,4 @@
-    import axios from 'axios';
+import axios from 'axios';
 import {COURSE_SAVED, COURSE_FAILED} from "./types";
 
 export const addCourse = ({name, tag, length, volume, picture, text, video}) => async dispatch => {
