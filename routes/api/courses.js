@@ -146,4 +146,21 @@ router.get("/id/:id", async (req, res) => {
 });
 
 
+router.post("/id", async (req, res) => {
+    try {
+        const id = req.body.id;
+        console.log(id);
+        const course = await Course.findById(id);
+        const video_Ids = course.videos;
+        let videos = await Video.find({'_id':video_Ids});
+        res.json(videos);
+    } catch (err) {
+        if(err) {
+            console.error(err.message);
+            res.status(500).send('server error');
+        }
+    }
+});
+
+
 module.exports = router;

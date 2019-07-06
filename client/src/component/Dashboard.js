@@ -6,6 +6,7 @@ import {Redirect} from "react-router";
 import {Link} from "react-router-dom";
 import {user} from "../actions/user";
 
+
 const style =
     {
         textAlign: 'center'

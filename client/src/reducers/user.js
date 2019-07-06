@@ -3,7 +3,7 @@ import {USER_UPDATED} from "../actions/types";
 const initialState = {
     place: '',          //dashboard or store
     course: '',
-    video: ''
+    video: '',
 };
 
 export default function(state = initialState, action) {
