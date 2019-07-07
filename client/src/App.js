@@ -47,15 +47,14 @@ const App = () => {
                             <Route exact path={'/modifycourse'} component={ModifyCourse}/>
 
                             <Route exact path={'/addvideo'} component={AddVideo}/>
-<<<<<<< HEAD
+
 
                             <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
                             <PrivateRoute exact path={'/courses'} component={Courses}/>
-=======
-                            <PrivateRoute  path={'/dashboard'} component={Dashboard}/>
-                            <PrivateRoute  path={'/coursepage'} component={CoursePage}/>
+
+
                             <PrivateRoute path={'/Video'} component/>
->>>>>>> 1fbe52c1377d8e0dd069f69bf2fee2bf5a25c834
+
 
                         </Switch>
                     </section>
