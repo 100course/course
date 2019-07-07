@@ -24,10 +24,9 @@ function UserPage() {
             });
     }, []);
     return (
-        <div className="userCourses">
-            {Courses.map(course =>
-                <Course key={course.id} course={course}/>)}
-        </div>
+            <h1>
+
+            </h1>
     )
 }
 
