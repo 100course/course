@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import {logout} from "../actions/auth";
 import {Redirect} from "react-router";
 import {Link} from "react-router-dom";
+import {user} from "../actions/user";
 
 const style =
     {
@@ -37,11 +38,12 @@ const Dashboard = ({logout,user}) => {
 Dashboard.proptypes =
     {
         logout: PropTypes.func.isRequired,
-        user: PropTypes.object.isRequired
+        user: PropTypes.object.isRequired,
     };
 const mapStateToProps = state =>
-    ({
-        user: state.auth.user
-    });
+({
+    user: state.auth.user
+});
+
 
 export default connect(mapStateToProps, {logout})(Dashboard);

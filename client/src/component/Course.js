@@ -2,10 +2,9 @@ import React, {useState, useEffect} from 'react';
 import './Course.css'
 import axios from "axios";
 
-import coursePage from './component/pages/coursePage';
 
 
-const Course = props => {
+const Course = () => {
     const [Courses, SetCourses] = useState([]);
     useEffect(() => {
         axios.get('http://localhost:5000/courses')
