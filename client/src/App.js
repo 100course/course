@@ -1,9 +1,10 @@
-import React, {Component,Fragment,useEffect} from 'react';
+import React, {Component, Fragment, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 //Components
 
 import Register from "./component/Register";
+import Course from "./component/Course";
 import Alert from "./component/alert";
 import Main from './component/Main';
 import AddCourse from './component/AddCourse';
@@ -20,21 +21,19 @@ import Dashboard from "./component/Dashboard";
 import PrivateRoute from "./component/routing/PrivateR";
 
 //redux
-import {Provider} from 'react-redux';
 import setAuthToken from "./utils/setAuthToken";
 import {loadUser} from "./actions/auth";
 
 
-if(localStorage.token){
+if (localStorage.token) {
     setAuthToken(localStorage.token);
 }
-
 
 
 const App = () => {
     useEffect(() => {
         store.dispatch(loadUser());
-    },[]);
+    }, []);
     return (
         <Provider store={store}>
             <Router>
@@ -52,6 +51,7 @@ const App = () => {
                             <Route exact path={'/addvideo'} component={AddVideo}/>
 
                             <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
+                            <PrivateRoute exact path={'/courses'} component={Course}/>
 
                         </Switch>
                     </section>

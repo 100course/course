@@ -9,8 +9,11 @@ const style =
     {
         textAlign: 'center'
     };
-const Dashboard = ({logout, user}) => {
-
+const Dashboard = ({logout,user}) => {
+    console.log("before")
+    console.log(user)
+    console.log("after")
+    console.log(user.course)
 
     {
         return (
@@ -20,6 +23,11 @@ const Dashboard = ({logout, user}) => {
                 </h1>
                 <p style={style}>Your username is {user.username}</p>
                 <p style={style}>Your email is {user.email}</p>
+                <p style={style}>Your Course is {user.courses} </p>
+                <Link to={'/courses'}>
+                    <button onClick={logout}>Courses</button>
+                </Link>
+
 
                 <Link to={'/login'}>
                     <button onClick={logout}>Logout</button>
@@ -36,9 +44,9 @@ Dashboard.proptypes =
         user: PropTypes.object.isRequired
     };
 const mapStateToProps = state =>
-({
-user:state.auth.user
+    ({
+        user: state.auth.user
 
-})
+    })
 
 export default connect(mapStateToProps, {logout})(Dashboard);
