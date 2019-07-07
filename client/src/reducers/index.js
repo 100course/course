@@ -5,7 +5,8 @@ import addcourse from './addcourse';
 import autocomplete from './autocomplete';
 import addvideo from './addvideo'
 import ShowCourse from './ShowCourse'
-export default combineReducers({alert, auth, addcourse, autocomplete, addvideo,ShowCourse});
+import getvideo from './getvideo'
+export default combineReducers({alert, auth, addcourse, autocomplete, addvideo,ShowCourse,getvideo});
 
 
 

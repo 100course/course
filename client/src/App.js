@@ -1,7 +1,5 @@
-
 import React, {Component, Fragment, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-
 import './App.css';
 //Components
 
@@ -10,9 +8,14 @@ import Courses from "./component/Courses";
 import Alert from "./component/alert";
 import Main from './component/Main';
 import AddCourse from './component/AddCourse';
+
 import ModifyCourse from './component/ModifyCourse';
+
+import {Provider} from 'react-redux';
+
 import AddVideo from './component/AddVideo'
-import CoursePage from './component/pages/CoursePage'
+import Video from './component/Videos'
+
 import store from './store'
 import Login from "./component/Login";
 import Dashboard from "./component/Dashboard";
@@ -29,7 +32,7 @@ if (localStorage.token) {
 
 
 const App = () => {
-   useEffect(() => {
+    useEffect(() => {
         store.dispatch(loadUser());
     }, []);
     return (
@@ -48,13 +51,9 @@ const App = () => {
 
                             <Route exact path={'/addvideo'} component={AddVideo}/>
 
-
                             <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
                             <PrivateRoute exact path={'/courses'} component={Courses}/>
-
-
-                            <PrivateRoute path={'/Video'} component/>
-
+                            <PrivateRoute exact path={'/videos'} component={Video}/>
 
                         </Switch>
                     </section>
