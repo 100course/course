@@ -10,8 +10,7 @@ const style =
     {
         textAlign: 'center'
     };
-const Dashboard = ({logout, user}) => {
-
+const Dashboard = ({logout,user}) => {
 
     {
         return (
@@ -21,6 +20,11 @@ const Dashboard = ({logout, user}) => {
                 </h1>
                 <p style={style}>Your username is {user.username}</p>
                 <p style={style}>Your email is {user.email}</p>
+                <p style={style}>Your Course is {user.courses} </p>
+                <Link to={'/courses'}>
+                    <button >Courses</button>
+                </Link>
+
 
                 <Link to={'/login'}>
                     <button onClick={logout}>Logout</button>
@@ -38,9 +42,8 @@ Dashboard.proptypes =
     };
 const mapStateToProps = state =>
 ({
-user:state.auth.user
+    user: state.auth.user
 });
-
 
 
 export default connect(mapStateToProps, {logout})(Dashboard);

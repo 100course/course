@@ -15,31 +15,14 @@ router.get('/', async (req, res)=> {
     }
 });
 
-router.post('/id', [
-        check('name', 'Name is required').not().isEmpty(),
-        check('picture', 'picture is required').not().isEmpty()
-    ],
+router.post('/id',
     async (req, res)=> {
         try {
-            const errors = validationResult(req);
-            if(!errors.isEmpty()){
-                return res.status(400).json({errors: errors.array()});
-            }
-            const {videos, name, length, volume, picture} = req.body;
-            console.log(typeof videos);
-            let course = await Course.findOne({name});
-            if(course){
-                return res.status(400).json({errors : [{msg: 'course already exist'}]});
-            }
-            course = new Course({
-               videos,
-               name,
-               length,
-               volume,
-               picture
-            });
-            await course.save();
-            res.send(course);
+            const {id} = req.body;
+            console.log("idsssss: ",id);
+            const result = await Course.find({'_id': { $in: id}});
+            console.log(result);
+            res.send(result);
         } catch (err) {
             console.error(err.message);
             res.status(500).send('server error');

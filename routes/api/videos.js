@@ -51,5 +51,16 @@ router.post("/",[
         }
 });
 
+router.post('/id', async (req, res) => {
+        try {
+            const {id} = req.body;
+            const result = await Video.find({'_id': { $in: id}});
+            res.send(result);
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).send('server error');
+        }
+});
+
 
 module.exports = router;
