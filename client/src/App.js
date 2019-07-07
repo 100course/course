@@ -4,7 +4,7 @@ import './App.css';
 //Components
 
 import Register from "./component/Register";
-import Course from "./component/Course";
+import Courses from "./component/Courses";
 import Alert from "./component/alert";
 import Main from './component/Main';
 import AddCourse from './component/AddCourse';
@@ -51,7 +51,7 @@ const App = () => {
                             <Route exact path={'/addvideo'} component={AddVideo}/>
 
                             <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
-                            <PrivateRoute exact path={'/courses'} component={Course}/>
+                            <PrivateRoute exact path={'/courses'} component={Courses}/>
 
                         </Switch>
                     </section>
