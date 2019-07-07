@@ -1,33 +1,30 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import {connect} from 'react-redux';
-import {ShowCourse} from '../actions/ShowCourse'
-import PropTypes from "prop-types";
+import {ShowCourse} from '../actions/ShowCourse';
+import propTypes from "prop-types";
 import axios from 'axios'
 
-const Course = ({user: {courses}, picture,ShowCourse,name}) => {
+const Course = ({data, user, ShowCourse}) => {
 
     useEffect(() => {
-        ShowCourse(courses)
-
-
+        console.log("ussssssser: ", user.courses);
+        ShowCourse(user.courses);
+    },[user]);
     return (
         <Fragment >
-
-
+            {data}
         </Fragment>
     )
-}
+};
 Course.propTypes = {
-       ShowCourse:PropTypes.func.isRequired,
-       picture: PropTypes.string.isRequired,
-        user: PropTypes.object.isRequired,
-        name:PropTypes.string.isRequired
-}
+    data: propTypes.array.isRequired,
+    user: propTypes.object.isRequired,
+    ShowCourse: propTypes.func.isRequired
+};
 const mapStateToProps = state =>
     ({
         user: state.auth.user,
-        picture:state.ShowCourse.picture,
-        name:state.ShowCourse.name
-    })
+        data: state.ShowCourse.data
+    });
 
 export default connect(mapStateToProps,{ShowCourse})(Course)

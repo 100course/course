@@ -18,9 +18,9 @@ router.get('/', async (req, res)=> {
 router.post('/id',
     async (req, res)=> {
         try {
-            const {ids} = req.body;
-            console.log(ids);
-            const result = await Course.find({'_id': { $in: ids}});
+            const {id} = req.body;
+            console.log("idsssss: ",id);
+            const result = await Course.find({'_id': { $in: id}});
             console.log(result);
             res.send(result);
         } catch (err) {
