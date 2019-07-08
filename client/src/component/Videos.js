@@ -1,17 +1,27 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from "prop-types";
-import VideosComponent from './VideoComponent'
+import {Link} from "react-router-dom";
+
 
 const Videos=({videos})=>
 {
     return (
         <Fragment >
+            <ol>
             {videos.map(item => {
+                const {name}=item
+
                 return(
-                    <VideosComponent src={item} />
+                    <Link to={'/'+name}>
+                    <li>
+                        {name}
+                    </li>
+                    </Link>
                 )
+
             })}
+            </ol>
         </Fragment>
     )
 

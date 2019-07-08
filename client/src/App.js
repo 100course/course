@@ -14,7 +14,7 @@ import ModifyCourse from './component/ModifyCourse';
 import {Provider} from 'react-redux';
 
 import AddVideo from './component/AddVideo'
-import Video from './component/Videos'
+import Videos from './component/Videos'
 
 import store from './store'
 import Login from "./component/Login";
@@ -55,7 +55,7 @@ const App = () => {
                             <Route exact path={'/store'} component={StoreCourse}/>
                             <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
                             <PrivateRoute exact path={'/courses'} component={Courses}/>
-                            <PrivateRoute exact path={'/videos'} component={Video}/>
+                            <PrivateRoute exact path={'/videos'} component={Videos}/>
 
                         </Switch>
                     </section>
