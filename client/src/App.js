@@ -24,6 +24,7 @@ import PrivateRoute from "./component/routing/PrivateR";
 //redux
 import setAuthToken from "./utils/setAuthToken";
 import {loadUser} from "./actions/auth";
+import StoreCourse from "./component/StoreCourse";
 
 
 if (localStorage.token) {
@@ -33,6 +34,7 @@ if (localStorage.token) {
 
 const App = () => {
     useEffect(() => {
+        console.log("app js effect");
         store.dispatch(loadUser());
     }, []);
     return (
@@ -50,7 +52,7 @@ const App = () => {
                             <Route exact path={'/modifycourse'} component={ModifyCourse}/>
 
                             <Route exact path={'/addvideo'} component={AddVideo}/>
-
+                            <Route exact path={'/store'} component={StoreCourse}/>
                             <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
                             <PrivateRoute exact path={'/courses'} component={Courses}/>
                             <PrivateRoute exact path={'/videos'} component={Video}/>
