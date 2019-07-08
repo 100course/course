@@ -34,9 +34,19 @@ const UserSchema = new mongoose.Schema({
                 required: true
             }
         }
+        ],
+    latest: [
+        {
+            course: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'course'
+            },
+            video: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'video'
+            }
+        }
         ]
-
-
 });
 
 
