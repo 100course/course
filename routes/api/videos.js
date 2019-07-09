@@ -2,6 +2,7 @@ const express = require('express');
 const {check, validationResult} = require('express-validator/check');
 const router = express.Router();
 const Video = require('../../models/video');
+const Course = require('../../models/course);
 
 router.get("/:id", async (req, res) => {
     try {
@@ -28,12 +29,13 @@ router.post("/",[
             return res.status(400).json({errors: errors.array()});
         }
 
-        const {name, link, subtitle,tags, length, volume, picture} = req.body;
+        const {name, link, subtitle,tags, length, volume, picture, course} = req.body;
         try {
             let video = await Video.findOne({link});
             if(video){
                 return res.status(400).json({errors : [{msg: 'video already exist'}]});
             }
+            const course_id = await Course.findOne({name: course});
             video = new Video ({
                 name,
                 link,
@@ -41,7 +43,8 @@ router.post("/",[
                 tags,
                 length,
                 volume,
-                picture
+                picture,
+                course : course_id.id
             });
             await video.save();
             res.send(video);
