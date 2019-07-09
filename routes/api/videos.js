@@ -2,7 +2,7 @@ const express = require('express');
 const {check, validationResult} = require('express-validator/check');
 const router = express.Router();
 const Video = require('../../models/video');
-const Course = require('../../models/course);
+const Course = require('../../models/course');
 
 router.get("/:id", async (req, res) => {
     try {
