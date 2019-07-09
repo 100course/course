@@ -14,7 +14,7 @@ export const COURSE_FAILED = 'COURSE_FAILED';
 export const VIDEO_SAVED='VIDEO_SAVED';
 export const VIDEO_FAILED='VIDEO_FAILED';
 export const GET_COURSES = 'GET_COURSES';
-export const USER_UPDATED = 'USER_UPDATED';
+export const USER_PATH_UPDATED = 'USER_PATH_UPDATED';
 export const GET_VIDEO='GET_VIDEO';
 export const STORE_COURSES = "STORE_COURSES";
 

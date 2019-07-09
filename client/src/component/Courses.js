@@ -9,20 +9,12 @@ import CourseComponent from './CourseComponent'
 const Course = ({courses, user, ShowCourse, courseLoaded,GetVideo}) => {
     useEffect(() => {
         ShowCourse(user.courses);
-
     },[user]);
-    const ClickHandler=(e)=>
-    {
-        GetVideo(user.courses.videos)
-        console.log("heeeeeeeeey")
-        GetVideo(e)
-        console.log("heeeeeeeeey1111111111")
-    }
     return (
         <Fragment >
             {courses.map(item => {
                 return(
-                    <CourseComponent picture={item.picture} name={item.name} length={item.length} volume={item.volume } click={(e)=>ClickHandler(item.videos)}  />
+                    <CourseComponent picture={item.picture} name={item.name} length={item.length} volume={item.volume }  />
                 )
             })}
         </Fragment>
