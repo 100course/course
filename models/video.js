@@ -31,8 +31,8 @@ const VideoSchema = new mongoose.Schema ({
         required: true
     },
     course: {
-        type: String,
-        required: true
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'course'
     },
     date: {
         type: Date,
