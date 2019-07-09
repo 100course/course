@@ -29,13 +29,12 @@ router.post("/",[
             return res.status(400).json({errors: errors.array()});
         }
 
-        const {name, link, subtitle,tags, length, volume, picture, course} = req.body;
+        const {name, link, subtitle,tags, length, volume, picture} = req.body;
         try {
             let video = await Video.findOne({link});
             if(video){
                 return res.status(400).json({errors : [{msg: 'video already exist'}]});
             }
-            const course_id = await Course.findOne({name: course});
             video = new Video ({
                 name,
                 link,
@@ -44,7 +43,6 @@ router.post("/",[
                 length,
                 volume,
                 picture,
-                course : course_id.id
             });
             await video.save();
             res.send(video);
