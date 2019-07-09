@@ -6,12 +6,14 @@ import {Link} from "react-router-dom";
 
 const Videos=({videos})=>
 {
+    useEffect(() => {
+
+    }, []);
     return (
         <Fragment >
             <ol>
             {videos.map(item => {
-                const {name}=item
-
+                const {name}=item;
                 return(
                     <Link to={'/'+name}>
                     <li>
