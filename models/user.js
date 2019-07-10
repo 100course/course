@@ -15,6 +15,15 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    miniCourses: [
+        {
+            miniCourse: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'miniCourse'
+            }
+        }
+
+    ],
     discussion: [
         {
             course: {

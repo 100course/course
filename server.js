@@ -39,6 +39,7 @@ app.use('/add', require('./routes/api/add'));
 app.use('/modify', require('./routes/api/modify'));
 app.use ('/search', require('./routes/api/search'));
 app.use('/store', require('./routes/api/storecourse'));
+app.use('/minicourse', require('./routes/api/miniCourse'));
 
 
 

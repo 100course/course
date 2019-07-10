@@ -70,7 +70,7 @@ export const login = ({email, password}) => async dispatch => {
 
     try {
         const res = await axios.post('http://localhost:5000/user/login', body, config);
-
+        console.log("login res: ", res);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
