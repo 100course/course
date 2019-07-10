@@ -8,7 +8,7 @@ router.post('/', async (req, res) => {
 
         const tag = req.body.tag;
         const regexp = new RegExp(tag);
-        const MiniCourses = await Course.find({"tags": regexp});
+        const MiniCourses = await MiniCourse.find({"tags": regexp});
         res.send(MiniCourses);
     } catch (err) {
         console.log(err);

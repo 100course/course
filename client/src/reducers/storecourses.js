@@ -3,17 +3,8 @@ import {STORE_COURSES} from "../actions/types";
 
 
 const initialState = {
-    storeLoaded: false,
-    courses: [
-        {
-            videos: [],
-            tags: [],
-            name: '',
-            length: '',
-            volume: '',
-            picture: ''
-        }
-    ]
+    storeLoading: true,
+    miniCourses : [],
 };
 
 export default function (state = initialState, action) {
@@ -21,8 +12,8 @@ export default function (state = initialState, action) {
     switch (type) {
         case STORE_COURSES:
             return {
-            courses: [...state.courses, ...payload],
-            storeLoaded: true
+            miniCourses: [...state.miniCourses, ...payload],
+            storeLoaded: false
         };
         default:
             return {
