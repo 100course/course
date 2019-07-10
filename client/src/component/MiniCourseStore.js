@@ -5,11 +5,11 @@ import propTypes from 'prop-types';
 const MiniCourse = (props) => {
 
     useEffect(() => {
-        console.log("props", props)
+        console.log("props: ", props)
     },[]);
     return(
         <Fragment>
-            <img src={props.miniCourse.picture}/>
+            <img src={props.MiniCourse.picture}/>
         </Fragment>
     );
 };

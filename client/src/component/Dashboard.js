@@ -33,8 +33,7 @@ const Dashboard = ({logout,user, isAuthenticated, loading, getMiniCourses, miniC
                 </h1>
                 <p style={style}>Your username is {user.username}</p>
                 <p style={style}>Your email is {user.email}</p>
-                {miniCourses.map(item => <MiniCourse miniCourses={item} />)}
-
+                {miniCourses.map(item => <MiniCourse miniCourse={item} />)}
 
 
                 <Link to={'/login'}>
