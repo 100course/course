@@ -26,7 +26,7 @@ const Dashboard = ({logout,user, isAuthenticated, loading, getMiniCourses, miniC
             <Fragment>
 
                     Welcome To AlphaCourses
-            </Fragment>
+
 
                 <h1 style={style}>
                     Welcome to Unicourses
