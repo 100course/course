@@ -12,6 +12,7 @@ const MiniCourse = ({miniCourse}) => {
     },[]);
     return(
         <Fragment>
+            <p>hello</p>
         </Fragment>
     );
 };

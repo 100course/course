@@ -37,7 +37,6 @@ export default function (state = initialState, action) {
                 loading: false
             };
         case LOGIN_SUCCESS:
-
             localStorage.setItem('token', payload.token);
             return ({
                 ...state,
