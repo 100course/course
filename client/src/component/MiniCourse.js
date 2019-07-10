@@ -2,19 +2,20 @@ import React, {Fragment, useState,useEffect} from 'react';
 import {connect} from "react-redux";
 import propTypes from 'prop-types';
 
-const MiniCourse = ({miniCourse}) => {
-    // const [MiniCourse, setMiniCourses] = useState({
-    //     MiniCourses: []
-    // });
+const MiniCourse = (props) => {
+
     useEffect(() => {
-        console.log("in minicourse");
-        //setMiniCourses({...MiniCourse.MiniCourses, ...user.miniCourses});
+        console.log("props", props)
     },[]);
     return(
         <Fragment>
-            <p>hello</p>
+            <img src={props.miniCourses.picture}/>
         </Fragment>
     );
+};
+
+MiniCourse.propTypes = {
+
 };
 
 export default MiniCourse;
