@@ -17,6 +17,8 @@ export const GET_COURSES = 'GET_COURSES';
 export const USER_UPDATED = 'USER_UPDATED';
 export const GET_VIDEO='GET_VIDEO';
 export const STORE_COURSES = "STORE_COURSES";
+export const MINI_COURSE_SAVED = "MINI_COURSE_SAVED";
+export const MINI_COURSE_SVAE_FAILED = "MINI_COURSE_SVAE_FAILED";
 
 
 

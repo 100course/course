@@ -7,7 +7,8 @@ import addvideo from './addvideo';
 import ShowCourse from './ShowCourse';
 import getvideo from './getvideo';
 import storecourse from './storecourses';
-export default combineReducers({alert, auth, addcourse, autocomplete, addvideo,ShowCourse,getvideo,storecourse});
+import addMiniCourse from './addMiniCourse';
+export default combineReducers({alert, auth, autocomplete, ShowCourse, storecourse, addMiniCourse});
 
 
 

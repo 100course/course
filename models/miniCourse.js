@@ -18,10 +18,6 @@ const MiniCourseSchema = new mongoose.Schema ({
         type: String,
         required: true
     },
-    number: {
-        type: Number,
-        required: true
-    },
     date: {
         type: Date,
         default: Date.now()
