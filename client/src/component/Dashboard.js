@@ -24,6 +24,10 @@ const Dashboard = ({logout,user, isAuthenticated, loading, getMiniCourses, miniC
         return (
             !loading && isAuthenticated && user !== '' && !miniCourseLoading? (
             <Fragment>
+
+                    Welcome To AlphaCourses
+            </Fragment>
+
                 <h1 style={style}>
                     Welcome to Unicourses
                 </h1>
