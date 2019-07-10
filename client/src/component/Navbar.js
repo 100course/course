@@ -1,41 +1,141 @@
 import React, {Fragment} from 'react';
-const Navbar=()=>
-{
-    return(
-        <Fragment>
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">Navbar</a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul className="navbar-nav">
-                <li className="nav-item active">
-                    <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#">Features</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#">Pricing</a>
-                </li>
-                <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown link
-                    </a>
-                    <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a className="dropdown-item" href="#">Action</a>
-                        <a className="dropdown-item" href="#">Another action</a>
-                        <a className="dropdown-item" href="#">Something else here</a>
+import {connect} from "react-redux";
+import {Link} from "react-router-dom";
+import styled from 'styled-components'
+import './Component.css'
+import PropTypes from 'prop-types';
+import {logout} from '../actions/auth'
+
+
+//Icons
+import SignIn from 'react-icons/lib/fa/user'
+import SignOut from 'react-icons/lib/fa/sign-out'
+import Register from 'react-icons/lib/fa/registered'
+import OurLogo from 'react-icons/lib/fa/book'
+
+
+const StyledLink = styled(Link)`
+  color: white
+  text-decoration:none;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+        &:focus,&:hover
+        
+        {
+        color:#00D5C0
+        }
+      
+    }
+`;
+
+
+
+
+const navbar = ({user,logout,isAuthenticated,loading}) => {
+    const NotAuth =
+        (
+
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark nav nav-pills">
+                    <StyledLink to={''}>
+                        <a className="navbar-brand">Alpha Courses <OurLogo/></a>
+                    </StyledLink>
+
+
+                    <div className="collapse navbar-collapse nav justify-content-end nav nav-pill">
+                        <ul className="nav nav-pills">
+                            <li className="nav-item active">
+                                <StyledLink to={'#'}>
+                                    <a className="nav-link">Blog <span className="sr-only">(current)</span></a>
+                                </StyledLink>
+                            </li>
+                            <li className="nav-item">
+                                <StyledLink to={'#'}>
+                                    <a className="nav-link">Our Courses
+                                    </a>
+                                </StyledLink>
+                            </li>
+                            <li className="nav-item">
+                                <StyledLink to={'Login'}>
+                                    <a className="nav-link">Login <SignIn/></a>
+                                </StyledLink>
+                            </li>
+                            <li className="nav-item ">
+                                <StyledLink to={'register'}>
+                                    <a className="nav-link">
+
+                                        Register <Register/>
+                                    </a>
+                                </StyledLink>
+                            </li>
+                        </ul>
                     </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
-        </Fragment>
+                </nav>
+
+
+        )
+    const IsAuth =
+        (
+
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark nav nav-pills">
+                    <StyledLink to={''}>
+                        <a className="navbar-brand">Alpha Courses <OurLogo/></a>
+                    </StyledLink>
+
+
+                    <div className="collapse navbar-collapse nav justify-content-end nav nav-pill">
+                        <ul className="nav nav-pills">
+                            <li className="nav-item active">
+                                <StyledLink to={'#'}>
+                                    <a className="nav-link">Blog <span className="sr-only">(current)</span></a>
+                                </StyledLink>
+                            </li>
+                            <li className="nav-item">
+                                <StyledLink to={'#'}>
+                                    <a className="nav-link">Our Courses
+                                    </a>
+                                </StyledLink>
+                            </li>
+                            <li className="nav-item">
+                                <StyledLink to={'/courses'}>
+                                    <a className="nav-link">Your Courses
+                                    </a>
+                                </StyledLink>
+                            </li>
+                            <li className="nav-item">
+                                <StyledLink to={'logout'}>
+                                    <a className="nav-link" onClick={logout}>Logout <SignOut/></a>
+                                </StyledLink>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+
+        )
+    return(
+    <Fragment>
+        {!loading && (
+            <Fragment>{isAuthenticated ? IsAuth : NotAuth}</Fragment>
+        )}
+    </Fragment>
     )
 
 }
-export default Navbar;
+
+
+navbar.propTypes=
+    {
+        user:PropTypes.object.isRequired,
+        logout:PropTypes.func.isRequired,
+        isAuthenticated:PropTypes.bool,
+        loading:PropTypes.bool
+    }
+const mapStateToProps=state=>
+({
+    user:state.auth.user,
+    isAuthenticated:state.auth.isAuthenticated,
+    loading:state.auth.user.loading
+
+})
+export default connect(mapStateToProps,{logout})(navbar);
