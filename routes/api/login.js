@@ -51,7 +51,7 @@ router.post('/', [
                     (err, token) => {
                         if(err)
                             throw err;
-                        res.json({token});
+                        res.json({token, user});
                     });
             } else{
                 return res.status(400).json({errors: [{msg: 'user doesnt exist'}]});

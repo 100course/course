@@ -8,7 +8,10 @@ const {check, validationResult} = require('express-validator/check');
 
 router.post('/', async (req, res) => {
     try {
-        const {ids} = req.body.ids;
+        const ids = req.body.ids;
+        let id = [];
+        ids.map(item => id.push(item.miniCourse));
+        console.log(id);
         const result = await MiniCourse.find({'_id': { $in: id}});
         res.send(result);
     } catch (err) {

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {MINI_COURSE_SAVED, MINI_COURSE_SVAE_FAILED} from "./types";
+import {MINI_COURSE_SAVED, MINI_COURSE_SAVE_FAILED} from "./types";
 
 export const addMiniCourse = ({name, link, subtitle,tags, picture}) => async dispatch => {
     const config = {
@@ -28,7 +28,7 @@ export const addMiniCourse = ({name, link, subtitle,tags, picture}) => async dis
     } catch (err) {
         console.log("");
         dispatch({
-            type: MINI_COURSE_SVAE_FAILED
+            type: MINI_COURSE_SAVE_FAILED
         })
     }
 };

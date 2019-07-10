@@ -17,8 +17,10 @@ const UserSchema = new mongoose.Schema({
     },
     miniCourses: [
         {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'miniCourse'
+            miniCourse: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'miniCourse'
+            }
         }
 
     ],
