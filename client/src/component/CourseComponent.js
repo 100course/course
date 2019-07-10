@@ -22,7 +22,7 @@ const CourseComponent = (props, {course}) => {
 CourseComponent.propTypes = {
     course :propTypes.object.isRequired
 };
-const mapStateToProps = state({
+const mapStateToProps = state => ({
     course: state.user.course
 });
 

@@ -20,9 +20,9 @@ const Dashboard = ({logout,user}) => {
                 </h1>
                 <p style={style}>Your username is {user.username}</p>
                 <p style={style}>Your email is {user.email}</p>
-                <p style={style}>Your Course is {user.courses} </p>
-                <Link to={'/courses'}>
-                    <button >Courses</button>
+                <p style={style}>Your Course is {user.courses + " "} </p>
+                <Link to={'/MiniCourse'}>
+                    <button >MiniCourses</button>
                 </Link>
 
 
