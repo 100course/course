@@ -25,7 +25,7 @@ const Login = ({setAlert, login,isAuthenticated}) => {
     };
     if(isAuthenticated)
     {
-        return <Link to={"/dashboard"}/>
+        return <Redirect to={"/dashboard"}/>
     }
 
     return (
