@@ -1,5 +1,5 @@
 import React, {Fragment, useState, useEffect} from 'react';
-import {Player} from 'video-react';
+/*import {Player} from 'video-react';*/
 
 
 const MiniCoursePlay = (props) => {
