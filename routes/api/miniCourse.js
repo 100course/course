@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
         const ids = req.body.ids;
         console.log("ids:",ids);
         let id = [];
-        ids.map(item => id.push(item.miniCourse));
+        ids.map(item => id.push(item.id));
         console.log(id);
         const result = await MiniCourse.find({'_id': { $in: id}});
         res.send(result);

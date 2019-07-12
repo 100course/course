@@ -11,7 +11,7 @@ const MiniCourse = (props) => {
     },[]);
     return(
         <Fragment>
-            <img src={props.miniCourse.picture}/>
+            <img src={props.miniCourse.picture} width="400" height="400"/>
             <Link to={MiniCoursePlay} miniCourse={props.miniCourse}>
                 <button type="button"> show video </button>
             </Link>

@@ -16,7 +16,9 @@ const style =
     };
 const Dashboard = ({logout,user, isAuthenticated, loading, getMiniCourses, miniCourses, miniCourseLoading}) => {
     useEffect(() => {
+        console.log(miniCourseLoading);
         if(user !== '' && miniCourseLoading)
+            console.log("user: ",user);
             getMiniCourses(user.miniCourses);
     }, [user]);
 
