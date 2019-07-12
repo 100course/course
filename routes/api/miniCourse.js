@@ -9,6 +9,7 @@ const {check, validationResult} = require('express-validator/check');
 router.post('/', async (req, res) => {
     try {
         const ids = req.body.ids;
+        console.log("ids:",ids);
         let id = [];
         ids.map(item => id.push(item.miniCourse));
         console.log(id);
