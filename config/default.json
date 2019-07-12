@@ -1,5 +1,7 @@
 {
   "mongoURI" : "mongodb://unicours_user:8R5c6Ytre8@88.99.137.123:27017/unicours_db",
+
   //"mongoURI": "mongodb+srv://amir:13771377@cluster0-xq5ga.mongodb.net/test?retryWrites=true&w=majority",
+
   "jwtToken" : "amirSecretToken"
 }
