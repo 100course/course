@@ -4,6 +4,7 @@ import axios from 'axios';
 
 export const getMiniCourses = (ids) => async dispatch => {
     try{
+        console.log("get minicourses: ",ids);
         const config = {
             headers : {
                 'Content-Type' : 'application/json'
@@ -19,6 +20,6 @@ export const getMiniCourses = (ids) => async dispatch => {
             payload: res.data
         })
     } catch (err) {
-        
+
     }
 };
