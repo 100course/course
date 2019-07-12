@@ -1,4 +1,4 @@
 {
-  "mongoURI" : "mongodb://courseir_user:5sky8ZY0p4@88.99.137.102:27017/courseir_db",
+  "mongoURI" : "mongodb://unicours_user:8R5c6Ytre8@88.99.137.123:27017/unicours_db",
   "jwtToken" : "amirSecretToken"
 }
