@@ -8,24 +8,20 @@ import {Link} from "react-router-dom";
 import MiniCourse from "./MiniCourse";
 import uuid from 'uuid';
 import {getMiniCourses} from '../actions/getMiniCourse';
-
-
-const style =
-    {
-        textAlign: 'center'
-    };
-const Dashboard = ({logout,user, isAuthenticated, loading, getMiniCourses, miniCourses, miniCourseLoading}) => {
+import '../css/style-responsive.css'
+import '../css/style.css'
+import '../css/table-responsive.css'
+import '../css/to-do.css'
+import '../css/zabuto_calendar.css'
+const Dashboard = ({logout, user, isAuthenticated, loading, getMiniCourses, miniCourses, miniCourseLoading}) => {
     useEffect(() => {
-        if(user !== '' && miniCourseLoading)
+        if (user !== '' && miniCourseLoading)
             getMiniCourses(user.miniCourses);
     }, [user]);
 
-
-        return (
-            !loading && isAuthenticated && user !== '' && !miniCourseLoading? (
-            <Fragment>
-
-                    Welcome To AlphaCourses
+return(
+    <Fragment>
+{/*             Welcome To AlphaCourses
 
 
                 <h1 style={style}>
@@ -41,11 +37,12 @@ const Dashboard = ({logout,user, isAuthenticated, loading, getMiniCourses, miniC
                 </Link>
             </Fragment> ) :
                     (<Fragment>
-                        <p>not authenticated!</p>
-                    </Fragment>)
+                        <p>not authenticated!</p>*/}
+                        </Fragment>
 
 
-        )
+
+)
 
 
 };
@@ -60,13 +57,13 @@ Dashboard.proptypes =
         miniCourseLoading: propTypes.bool.isRequired
     };
 const mapStateToProps = state =>
-({
-    user: state.auth.user,
-    isAuthenticated: state.auth.isAuthenticated,
-    loading: state.auth.loading,
-    miniCourses: state.getMiniCourse.miniCourses,
-    miniCourseLoading: state.getMiniCourse.loading
-});
+    ({
+        user: state.auth.user,
+        isAuthenticated: state.auth.isAuthenticated,
+        loading: state.auth.loading,
+        miniCourses: state.getMiniCourse.miniCourses,
+        miniCourseLoading: state.getMiniCourse.loading
+    });
 
 
 export default connect(mapStateToProps, {logout, getMiniCourses})(Dashboard);

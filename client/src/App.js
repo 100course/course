@@ -17,15 +17,14 @@ import Login from "./component/Login";
 import Dashboard from "./component/Dashboard";
 import PrivateRoute from "./component/routing/PrivateR";
 import navbar from './component/Navbar'
+import StoreCourse from "./component/StoreCourse";
+import AddMiniCourse from "./component/AddMiniCourse";
+import MiniCourse from "./component/MiniCourse";
 import NotFound from "./component/NotFound";
 
 //redux
 import setAuthToken from "./utils/setAuthToken";
 import {loadUser} from "./actions/auth";
-import StoreCourse from "./component/StoreCourse";
-
-import AddMiniCourse from "./component/AddMiniCourse";
-import MiniCourse from "./component/MiniCourse";
 
 
 if (localStorage.token) {
@@ -54,7 +53,6 @@ const App = () => {
                             <Route exact path={'/modifycourse'} component={ModifyCourse}/>
                             <Route exact path={'/addMiniCourse'} component={AddMiniCourse}/>
                             <Route exact path={'/minicourse'} component={MiniCourse}/>
-
                             <Route exact path={'/addvideo'} component={AddVideo}/>
                             <Route exact path={'/store'} component={StoreCourse}/>
                             <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
