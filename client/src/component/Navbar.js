@@ -2,7 +2,7 @@ import React, {Fragment,useState} from 'react';
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import styled from 'styled-components'
-import './simple-sidebar.css'
+/*import './simple-sidebar.css'*/
 import PropTypes from 'prop-types';
 import {logout} from '../actions/auth'
 
@@ -92,10 +92,11 @@ const navbar = ({user, logout, isAuthenticated, loading}) => {
     const IsAuth =
         (
             <Fragment>
+
                 <div className="d-flex" id="wrapper">
 
 
-                    <div className="bg-dark border-right " id="sidebar-wrapper" style={style} >
+                    <div className="bg-dark border-right rounded-lg  " id="sidebar-wrapper" style={style} >
                         <div className="sidebar-heading"><span className={'color'}>Alpha</span><span className={"obvios"} > Courses</span>  <OurLogo/></div>
                         <div className="list-group list-group-flush">
 
@@ -114,7 +115,7 @@ const navbar = ({user, logout, isAuthenticated, loading}) => {
 
                     <div id="page-content-wrapper">
 
-                        <nav className="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+                        <nav className="navbar navbar-expand-lg navbar-dark bg-dark border-bottom rounded-lg">
                             {/*<button className="btn btn-primary" id="menu-toggle" onClick={e=>Onclick(e)}>Make it bigger</button>
 
                             <button className="navbar-toggler"   type="button" data-toggle="collapse"
@@ -153,7 +154,6 @@ const navbar = ({user, logout, isAuthenticated, loading}) => {
                                 navbar is optional, and just for demonstration. Just create an element with
                                 the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
                         </div>*/}
-                        <h1>Courses go here!!</h1>
                     </div>
 
 
@@ -165,9 +165,9 @@ const navbar = ({user, logout, isAuthenticated, loading}) => {
 )
     return (
         <Fragment>
-            {!loading && (
-                <Fragment>{isAuthenticated ? IsAuth : NotAuth}</Fragment>
-            )}
+            {
+                  isAuthenticated ? IsAuth : NotAuth
+            }
         </Fragment>
     )
 

@@ -8,41 +8,24 @@ import {Link} from "react-router-dom";
 import MiniCourse from "./MiniCourse";
 import uuid from 'uuid';
 import {getMiniCourses} from '../actions/getMiniCourse';
-import '../css/style-responsive.css'
-import '../css/style.css'
-import '../css/table-responsive.css'
-import '../css/to-do.css'
-import '../css/zabuto_calendar.css'
+import {MDBCol, MDBRow} from "mdbreact";
+
 const Dashboard = ({logout, user, isAuthenticated, loading, getMiniCourses, miniCourses, miniCourseLoading}) => {
     useEffect(() => {
         if (user !== '' && miniCourseLoading)
             getMiniCourses(user.miniCourses);
     }, [user]);
 
-return(
-    <Fragment>
-{/*             Welcome To AlphaCourses
+    return (
+        <Fragment>
 
+            <MDBRow className="mb-3">
 
-                <h1 style={style}>
-                    Welcome to Unicourses
-                </h1>
-                <p style={style}>Your username is {user.username}</p>
-                <p style={style}>Your email is {user.email}</p>
-                {miniCourses.map(item => <MiniCourse miniCourse={item} />)}
+                {miniCourses.map(item => <MDBCol xl="4" md="8" className="mb-3"><MiniCourse miniCourse={item}/></MDBCol>)}
+            </MDBRow>
 
-
-                <Link to={'/login'}>
-                    <button onClick={logout}>Logout</button>
-                </Link>
-            </Fragment> ) :
-                    (<Fragment>
-                        <p>not authenticated!</p>*/}
-                        </Fragment>
-
-
-
-)
+        </Fragment>
+    )
 
 
 };
