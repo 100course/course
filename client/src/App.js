@@ -21,10 +21,13 @@ import StoreCourse from "./component/StoreCourse";
 import AddMiniCourse from "./component/AddMiniCourse";
 import MiniCourse from "./component/MiniCourse";
 import NotFound from "./component/NotFound";
+import './index.css';
 
 //redux
 import setAuthToken from "./utils/setAuthToken";
 import {loadUser} from "./actions/auth";
+import TopNavigation from "./component/TopNavigation";
+import SideNavigation from "./component/SideNavigation";
 
 
 if (localStorage.token) {
@@ -39,10 +42,16 @@ const App = () => {
     }, []);
     return (
         <Provider store={store}>
+            <section className={"flexible-content"}>
             <Router>
-                <Fragment>
+
+
                     <Route exact path='/' component={Main}/>
-                    <Route path={'/'} component={navbar}/>
+                    <section className="flexible-navbar flexible-content">
+                    <Route path={'/dashboard'} component={SideNavigation}/>
+                    <Route path={'/dashboard'} component={TopNavigation}/>
+                        <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
+                    </section>
                     <section className="container">
               {/*          <Route component={NotFound}/>*/}
                         <Alert/>
@@ -55,16 +64,17 @@ const App = () => {
                             <Route exact path={'/minicourse'} component={MiniCourse}/>
                             <Route exact path={'/addvideo'} component={AddVideo}/>
                             <Route exact path={'/store'} component={StoreCourse}/>
-                            <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
+
                             <PrivateRoute exact path={'/courses'} component={Courses}/>
                             <PrivateRoute exact path={'/videos'} component={Videos}/>
 
 
 
+
                         </Switch>
                     </section>
-                </Fragment>
             </Router>
+        </section>
         </Provider>
     )
 };
