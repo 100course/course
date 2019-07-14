@@ -19,9 +19,9 @@ const Dashboard = ({logout, user, isAuthenticated, loading, getMiniCourses, mini
     return (
         <Fragment>
 
-            <MDBRow className="mb-3">
+            <MDBRow className="justify-content-center">
 
-                {miniCourses.map(item => <MDBCol xl="4" md="8" className="mb-3"><MiniCourse miniCourse={item}/></MDBCol>)}
+                {miniCourses.map(item => <MDBCol xl="3" md="6" className="mb-3" ><MiniCourse miniCourse={item}/></MDBCol>)}
             </MDBRow>
 
         </Fragment>

@@ -5,6 +5,7 @@ import MiniCoursePlay from './MiniCousrePlay';
 import {Link} from "react-router-dom";
 import {Row,Container} from "react-bootstrap";
 import '../index.css'
+import {MDBCol} from "mdbreact";
 
 const MiniCourse = (props) => {
 
@@ -20,11 +21,11 @@ const MiniCourse = (props) => {
             </Fragment>*/
     return (
             <Fragment>
-            <Container fluid className="main-content-container px-4">
+            <Container fluid className="main-content-container px-4 flexible-content">
                 <Row noGutters className="page-header py-4">
 
 
-                    <div className="card minicourse ml-sm-auto mr-sm-auto" md="12">
+                    <div className="card minicourse mb-3" >
                         <img className="card-img-top" src={props.miniCourse.picture}/>
                         <div className="card-body">
                             <h5 className="card-title">Course Title </h5>

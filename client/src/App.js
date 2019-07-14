@@ -42,14 +42,15 @@ const App = () => {
     }, []);
     return (
         <Provider store={store}>
-
+            <section className={"flexible-content"}>
             <Router>
 
 
                     <Route exact path='/' component={Main}/>
-                    <section className="flexible-navbar">
+                    <section className="flexible-navbar flexible-content">
                     <Route path={'/dashboard'} component={SideNavigation}/>
                     <Route path={'/dashboard'} component={TopNavigation}/>
+                        <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
                     </section>
                     <section className="container">
               {/*          <Route component={NotFound}/>*/}
@@ -63,15 +64,17 @@ const App = () => {
                             <Route exact path={'/minicourse'} component={MiniCourse}/>
                             <Route exact path={'/addvideo'} component={AddVideo}/>
                             <Route exact path={'/store'} component={StoreCourse}/>
-                            <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
+
                             <PrivateRoute exact path={'/courses'} component={Courses}/>
                             <PrivateRoute exact path={'/videos'} component={Videos}/>
+
 
 
 
                         </Switch>
                     </section>
             </Router>
+        </section>
         </Provider>
     )
 };
