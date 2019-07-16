@@ -17,6 +17,7 @@ const Dashboard = ({logout, user, isAuthenticated, loading, getMiniCourses, mini
     }, [user]);
 
     return (
+
         <Fragment>
 
             <MDBRow className="justify-content-center">

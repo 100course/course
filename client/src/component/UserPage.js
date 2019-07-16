@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import Course from './Course';
 import axios from "axios";
 
 
@@ -8,7 +7,6 @@ function UserPage() {
     useEffect(() => {
         axios.get('http://localhost:5000/courses')
             .then(response => {
-                //console.log(response.data)
                 const Course = response.data;
                 const CourseList = [];
                 for (const key in Course) {
