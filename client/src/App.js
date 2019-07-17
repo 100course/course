@@ -1,80 +1,47 @@
-import React, {Component, Fragment, useEffect} from 'react';
+//Initial Setup
+import React, {useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
-//Components
+import './index.css';
 
-import Register from "./component/Register";
-import Courses from "./component/Courses";
+//Components
 import Alert from "./component/alert";
 import Main from './component/Main';
-import AddCourse from './component/AddCourse';
-import ModifyCourse from './component/ModifyCourse';
-import {Provider} from 'react-redux';
-import AddVideo from './component/AddVideo'
-import Videos from './component/Videos'
 import store from './store'
-import Login from "./component/Login";
-import Dashboard from "./component/Dashboard";
 import PrivateRoute from "./component/routing/PrivateR";
-import navbar from './component/Navbar'
-import StoreCourse from "./component/StoreCourse";
-import AddMiniCourse from "./component/AddMiniCourse";
-import MiniCourse from "./component/MiniCourse";
-import NotFound from "./component/NotFound";
-import './index.css';
+import TopNavigation from "./component/TopNavigation";
+import SideNavigation from "./component/SideNavigation";
+import Routeer from './component/Router'
 
 //redux
 import setAuthToken from "./utils/setAuthToken";
 import {loadUser} from "./actions/auth";
-import TopNavigation from "./component/TopNavigation";
-import SideNavigation from "./component/SideNavigation";
+import {Provider} from 'react-redux';
 
 
 if (localStorage.token) {
     setAuthToken(localStorage.token);
 }
 
-
 const App = () => {
     useEffect(() => {
         console.log("app js effect");
         store.dispatch(loadUser());
     }, []);
+
+
     return (
         <Provider store={store}>
-            <section className={"flexible-content"}>
-            <Router>
-
-
+            <section className="flexible-navbar flexible-content">
+                <Router>
                     <Route exact path='/' component={Main}/>
-                    <section className="flexible-navbar flexible-content">
-                    <Route path={'/dashboard'} component={SideNavigation}/>
-                    <Route path={'/dashboard'} component={TopNavigation}/>
-                        <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
-                    </section>
-                    <section className="container">
-              {/*          <Route component={NotFound}/>*/}
-                        <Alert/>
-                        <Switch>
-                            <Route exact path={'/register'} component={Register}/>
-                            <Route exact path={'/login'} component={Login}/>
-                            <Route exact path={'/addcourse'} component={AddCourse}/>
-                            <Route exact path={'/modifycourse'} component={ModifyCourse}/>
-                            <Route exact path={'/addMiniCourse'} component={AddMiniCourse}/>
-                            <Route exact path={'/minicourse'} component={MiniCourse}/>
-                            <Route exact path={'/addvideo'} component={AddVideo}/>
-                            <Route exact path={'/store'} component={StoreCourse}/>
+                    <PrivateRoute path={'/dashboard'} component={SideNavigation}/>
+                    <PrivateRoute path={'/dashboard'} component={TopNavigation}/>
+                    <Alert/>
+                    <Routeer/>
+                </Router>
+            </section>
 
-                            <PrivateRoute exact path={'/courses'} component={Courses}/>
-                            <PrivateRoute exact path={'/videos'} component={Videos}/>
-
-
-
-
-                        </Switch>
-                    </section>
-            </Router>
-        </section>
         </Provider>
     )
 };

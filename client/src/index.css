@@ -18,7 +18,7 @@ a{
 }
 
 .active{
-  background-color: #e9ecef !;
+  background-color: #e9ecef!;
 }
 
 main {
@@ -32,14 +32,35 @@ main {
 
 .sidebar-fixed {
   left: 0;
-  top: 0;
-  height: 100vh;
+  top:0;
+  height: 50vh;
   width: 270px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   z-index: 1050;
   background-color: #fff;
   padding: 1.5rem;
   padding-top: 0;
+}
+.sidebar-fixed1 {
+  bottom: 0;
+  left:0;
+  height: 50vh;
+  width: 270px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  z-index: 1050;
+  background-color: #fff;
+  padding: 1.5rem;
+  padding-top:10;
+  padding-bottom:0;
+}
+.imgWaH
+{
+  height: 100px;
+  width: 100px;
+}
+.SideNavbar1ItemColor
+{
+  color:#2196f3;
 }
 
 
@@ -58,16 +79,14 @@ main {
   width: 100%;
   padding: 2.5rem;
 }
+.sidebar-fixed1 .logo-wrapper img{
+  width: 100%;
+  padding: 2.5rem;
+}
 
 .list-group-item {
   display: block !important;
   transition: background-color 0.3s;
-}
-
-.list-group-item:hover {
-  color: #49505B;
-  text-decoration: none;
-  background-color: #f8f9fa
 }
 
 .list-group-item:hover {
@@ -182,6 +201,9 @@ main {
   .sidebar-fixed {
     display: none;
   }
+  .sidebar-fixed1 {
+    display: none;
+  }
   .flexible-content {
     padding-left: 0;
   }
@@ -211,18 +233,8 @@ main {
     flex-direction: column;
   }
 }
-.imgWaH
-{
-  height: 100px;
-  width: 100px;
-}
-#LogutHover:hover
-{
 
 
-
-
-}
 
 
 

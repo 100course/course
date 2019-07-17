@@ -11,7 +11,8 @@ const initialState = {
         volume: '',
         picture: ''
     }
-    ]
+    ],
+    tags: []
 };
 
 export default function (state = initialState, action) {
