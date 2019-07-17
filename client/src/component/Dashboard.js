@@ -14,7 +14,7 @@ const Dashboard = ({logout, user, isAuthenticated, loading, getMiniCourses, mini
     useEffect(() => {
         if (user !== '' && miniCourseLoading)
             getMiniCourses(user.miniCourses);
-    }, [user]);
+    }, [user, filter]);
     return (
 
 
@@ -23,8 +23,9 @@ const Dashboard = ({logout, user, isAuthenticated, loading, getMiniCourses, mini
                 <MDBRow className="justify-content-center">
 
 
-                    {miniCourses.map(item =><MDBCol xl="3" md="6" className="mb-3"><MiniCourse
-                        miniCourse={item}/></MDBCol>)}
+                    {miniCourses.map(item =>
+                                    <MDBCol xl="3" md="6" className="mb-3"><MiniCourse
+                                    miniCourse={item}/></MDBCol>)}
 
 
 
@@ -45,7 +46,7 @@ Dashboard.propTypes =
         getMiniCourses: PropTypes.func.isRequired,
         miniCourses: PropTypes.array.isRequired,
         miniCourseLoading: PropTypes.bool.isRequired,
-        filter:PropTypes.array.isRequired
+        filter:PropTypes.array.isRequired,
     };
 const mapStateToProps = state =>
     ({
@@ -54,7 +55,7 @@ const mapStateToProps = state =>
         loading: state.auth.loading,
         miniCourses: state.getMiniCourse.miniCourses,
         miniCourseLoading: state.getMiniCourse.loading,
-        filter:state.FilterCourses.Filter
+        filter:state.getMiniCourse.tags,
     });
 
 

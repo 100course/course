@@ -8,22 +8,13 @@ import {connect} from 'react-redux'
 
 const SideNavigation = ({FilterCourses}) => {
     const [State, StateHandler] = useState({
-        all: false,
-        all1: false,
-        all2: false,
-        all3: false,
-        all4: false,
-        all5: false,
-        all6: false
-
-
-    })
+        filters : []
+    });
     const OnClick = (e) => {
-        StateHandler({
-            ...State, [e.target.name]: e.target.checked
-        })
-    }
-    FilterCourses(State)
+        //State.filters.push(e.target.name);
+        FilterCourses(e.target.name);
+
+    };
 
     return (
         <div className='flexible-content'>

@@ -3,7 +3,7 @@ import {FILTER_COURSES} from "../actions/types";
 const initialState =
     {
         Filter: [],
-    }
+    };
 
 
 export default function (state = initialState, action) {

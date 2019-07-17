@@ -1,8 +1,8 @@
-import React from 'react'
-
-const MiniCourses=()=>
-{
-
-
-}
-return default MiniCourses
+// import React from 'react'
+//
+// const MiniCourses=()=>
+// {
+//
+//
+// }
+// return default MiniCourses

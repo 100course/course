@@ -8,35 +8,50 @@ import '../index.css'
 import {MDBCol} from "mdbreact";
 
 const MiniCourse = (props) => {
+    let found = props.miniCourse.tags.some(r=> props.filter.indexOf(r) >= 0);
 
     useEffect(() => {
-        console.log("props", props)
+        //console.log("props", props);
+        //console.log("minicourse filter : ", props);
+        //console.log("found: ", found);
     }, []);
-    return (
+    if(found) {
+        return (
             <Fragment>
-            <Container fluid className="main-content-container px-4 flexible-content">
-                <Row noGutters className="page-header py-4">
+                <Container fluid className="main-content-container px-4 flexible-content">
+                    <Row noGutters className="page-header py-4">
 
 
-                    <div className="card minicourse mb-3" >
-                        <img className="card-img-top" src={props.miniCourse.picture}/>
-                        <div className="card-body">
-                            <h5 className="card-title">Course Title </h5>
-                            <p className="card-text">a bit Explanation of minicourse
-                            </p>
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
-                           {/* {console.log(props.miniCourse.tags)}*/}
+                        <div className="card minicourse mb-3">
+                            <img className="card-img-top" src={props.miniCourse.picture}/>
+                            <div className="card-body">
+                                <h5 className="card-title">Course Title </h5>
+                                <p className="card-text">a bit Explanation of minicourse
+                                </p>
+                                <a href="#" className="btn btn-primary">Go somewhere</a>
+                                {/* {console.log(props.miniCourse.tags)}*/}
+                            </div>
                         </div>
-                    </div>
-                </Row>
-            </Container>
+                    </Row>
+                </Container>
 
-</Fragment>
+            </Fragment>
 
-)
+        );
+    }
+    else {
+        console.log("here i am");
+
+        return null;
+    }
 
 };
 
-MiniCourse.propTypes = {};
+MiniCourse.propTypes = {
+    filter : propTypes.array.isRequired
+};
+const mapStateToProps = state => ({
+    filter: state.getMiniCourse.tags
+});
 
-export default MiniCourse;
+export default connect(mapStateToProps)(MiniCourse);

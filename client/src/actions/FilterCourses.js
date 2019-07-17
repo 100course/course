@@ -1,18 +1,14 @@
-import {FILTER_COURSES} from "./types";
+import {FILTER_COURSES} from '../actions/types';
 
 
-
-export const FilterCourses = (State) => dispatch =>
-
-{
-
-    dispatch(
-        {
+export const FilterCourses = (filter) => dispatch => {
+    //console.log("here in filter", filters);
+    //filters.filters.map(filter =>{
+        //console.log(filter)
+        dispatch({
             type: FILTER_COURSES,
-            payload: State
-        }
-
-    );
-
-
+            payload: filter
+        });
+    //}
+    //)
 };
