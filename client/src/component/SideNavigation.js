@@ -1,9 +1,30 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
 import logo from "../assets/mdb-react.png";
 import {MDBListGroup, MDBListGroupItem, MDBIcon} from 'mdbreact';
 import {NavLink} from 'react-router-dom';
+import {FilterCourses} from "../actions/FilterCourses";
+import PropTypes from "prop-types";
+import {connect} from 'react-redux'
 
-const SideNavigation = () => {
+const SideNavigation = ({FilterCourses}) => {
+    const [State, StateHandler] = useState({
+        all: false,
+        all1: false,
+        all2: false,
+        all3: false,
+        all4: false,
+        all5: false,
+        all6: false
+
+
+    })
+    const OnClick = (e) => {
+        StateHandler({
+            ...State, [e.target.name]: e.target.checked
+        })
+    }
+    FilterCourses(State)
+
     return (
         <div className='flexible-content'>
             <div className="sidebar-fixed  position-fixed rounded">
@@ -48,55 +69,64 @@ const SideNavigation = () => {
                 <MDBListGroup className="list-group-flush">
                     <MDBListGroupItem>
                         <div className="custom-control custom-checkbox">
-                            <input type="checkbox" className="custom-control-input" id="defaultUnchecked1"/>
+                            <input type="checkbox" className="custom-control-input" id="defaultUnchecked1" name="all"
+                                   onClick={e => OnClick(e)}/>
                             <label className="custom-control-label" htmlFor="defaultUnchecked1">All</label>
                         </div>
                     </MDBListGroupItem>
 
                     <MDBListGroupItem>
                         <div className="custom-control custom-checkbox">
-                            <input type="checkbox" className="custom-control-input" id="defaultUnchecked2"/>
+                            <input type="checkbox" className="custom-control-input" id="defaultUnchecked2" name="all1"
+                                   onClick={e => OnClick(e)}/>
                             <label className="custom-control-label" htmlFor="defaultUnchecked2">Programming</label>
                         </div>
                     </MDBListGroupItem>
                     <MDBListGroupItem>
                         <div className="custom-control custom-checkbox">
-                            <input type="checkbox" className="custom-control-input" id="defaultUnchecked3"/>
+                            <input type="checkbox" className="custom-control-input" id="defaultUnchecked3" name="all2"
+                                   onClick={e => OnClick(e)}/>
                             <label className="custom-control-label" htmlFor="defaultUnchecked3">Designing</label>
                         </div>
                     </MDBListGroupItem>
                     <MDBListGroupItem>
                         <div className="custom-control custom-checkbox">
-                            <input type="checkbox" className="custom-control-input" id="defaultUnchecked4"/>
+                            <input type="checkbox" className="custom-control-input" id="defaultUnchecked4" name="all3"
+                                   onClick={e => OnClick(e)}/>
                             <label className="custom-control-label" htmlFor="defaultUnchecked4">Other 1</label>
                         </div>
                     </MDBListGroupItem>
                     <MDBListGroupItem>
                         <div className="custom-control custom-checkbox">
-                            <input type="checkbox" className="custom-control-input" id="defaultUnchecked5"/>
+                            <input type="checkbox" className="custom-control-input" id="defaultUnchecked5" name="all4"
+                                   onClick={e => OnClick(e)}/>
                             <label className="custom-control-label" htmlFor="defaultUnchecked5">Other 2</label>
                         </div>
                     </MDBListGroupItem>
                     <MDBListGroupItem>
                         <div className="custom-control custom-checkbox">
-                            <input type="checkbox" className="custom-control-input" id="defaultUnchecked6"/>
+                            <input type="checkbox" className="custom-control-input" id="defaultUnchecked6" name="all5"
+                                   onClick={e => OnClick(e)}/>
                             <label className="custom-control-label" htmlFor="defaultUnchecked6">Other 3</label>
                         </div>
                     </MDBListGroupItem>
-                <MDBListGroupItem>
-                    <div className="custom-control custom-checkbox">
-                        <input type="checkbox" className="custom-control-input" id="defaultUnchecked7"/>
+                    <MDBListGroupItem>
+                        <div className="custom-control custom-checkbox">
+                            <input type="checkbox" className="custom-control-input" id="defaultUnchecked7" name="all6"
+                                   onClick={e => OnClick(e)}/>
                             <label className="custom-control-label" htmlFor="defaultUnchecked7">Other 4</label>
-                    </div>
-                </MDBListGroupItem>
+                        </div>
+                    </MDBListGroupItem>
                 </MDBListGroup>
             </div>
-
-
 
 
         </div>
 
     )
 }
-export default SideNavigation;
+SideNavigation.propTypes =
+    {
+        FilterCourses: PropTypes.func.isRequired
+    }
+export default connect(null, {FilterCourses})(SideNavigation);

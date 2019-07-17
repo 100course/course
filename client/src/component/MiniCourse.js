@@ -25,6 +25,7 @@ const MiniCourse = (props) => {
                             <p className="card-text">a bit Explanation of minicourse
                             </p>
                             <a href="#" className="btn btn-primary">Go somewhere</a>
+                           {/* {console.log(props.miniCourse.tags)}*/}
                         </div>
                     </div>
                 </Row>
