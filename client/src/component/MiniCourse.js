@@ -9,12 +9,6 @@ import {MDBCol} from "mdbreact";
 
 const MiniCourse = (props) => {
     let found = props.miniCourse.tags.some(r=> props.filter.indexOf(r) >= 0);
-
-    useEffect(() => {
-        //console.log("props", props);
-        //console.log("minicourse filter : ", props);
-        //console.log("found: ", found);
-    }, []);
     if(found) {
         return (
             <Fragment>
@@ -29,7 +23,6 @@ const MiniCourse = (props) => {
                                 <p className="card-text">a bit Explanation of minicourse
                                 </p>
                                 <a href="#" className="btn btn-primary">Go somewhere</a>
-                                {/* {console.log(props.miniCourse.tags)}*/}
                             </div>
                         </div>
                     </Row>
@@ -40,7 +33,6 @@ const MiniCourse = (props) => {
         );
     }
     else {
-        console.log("here i am");
 
         return null;
     }

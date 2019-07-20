@@ -3,17 +3,29 @@ import propTypes from 'prop-types';
 import {connect} from "react-redux";
 import {storecourse} from '../actions/storecourse';
 import MiniCourseStore from './MiniCourseStore';
+import {MDBCol, MDBRow} from "mdbreact";
 
 const StoreCourse = ({miniCourses, storeLoading, storecourse, user, loading, miniCourseLoading}) => {
+    console.log("BYE")
     useEffect(() => {
         if(storeLoading)
             storecourse();
     },[]);
-
     return( !miniCourseLoading ? (
-        <Fragment>
-            {miniCourses.map(item => <MiniCourseStore miniCourse={item}/>)}
-        </Fragment> ) : (<Fragment><p>not yet baby!</p></Fragment>)
+            <Fragment>
+                <MDBRow className="justify-content-center">
+
+
+                    {miniCourses.map(item =>
+                        <MDBCol xl="3" md="6" className="mb-3"><MiniCourseStore
+                            miniCourse={item}/></MDBCol>)}
+
+
+
+                </MDBRow>
+
+            </Fragment>) : (<Fragment><p>not yet baby!</p></Fragment>)
+
     );
 };
 

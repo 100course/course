@@ -29,18 +29,22 @@ main {
   margin-left: 15px;
   color: #2196f3 !important;
 }
-
-.sidebar-fixed {
-  left: 0;
+.navbar-fixed {
   top:0;
-  height: 50vh;
-  width: 270px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  z-index: 1050;
-  background-color: #fff;
-  padding: 1.5rem;
   padding-top: 0;
 }
+
+.sidebar-fixed {
+   left: 0;
+   top:0;
+   height: 50vh;
+   width: 270px;
+   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+   z-index: 1050;
+   background-color: #fff;
+   padding: 1.5rem;
+   padding-top: 0;
+ }
 .sidebar-fixed1 {
   bottom: 0;
   left:0;

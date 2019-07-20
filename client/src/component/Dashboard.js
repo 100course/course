@@ -2,14 +2,9 @@ import React, {Fragment, useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from "prop-types";
 import {logout} from "../actions/auth";
-import {Redirect} from "react-router";
-import {Link} from "react-router-dom";
-//import {user} from "../actions/user";
 import MiniCourse from "./MiniCourse";
-import uuid from 'uuid';
 import {getMiniCourses} from '../actions/getMiniCourse';
 import {MDBCol, MDBRow} from "mdbreact";
-
 const Dashboard = ({logout, user, isAuthenticated, loading, getMiniCourses, miniCourses, miniCourseLoading,filter}) => {
     useEffect(() => {
         if (user !== '' && miniCourseLoading)

@@ -6,11 +6,11 @@ import './index.css';
 
 //Components
 import Alert from "./component/alert";
-import Main from './component/Main';
 import store from './store'
 import PrivateRoute from "./component/routing/PrivateR";
 import TopNavigation from "./component/TopNavigation";
 import SideNavigation from "./component/SideNavigation";
+import StoreCourse from "./component/StoreCourse"
 import Routeer from './component/Router'
 
 //redux
@@ -34,9 +34,9 @@ const App = () => {
         <Provider store={store}>
             <section className="flexible-navbar flexible-content">
                 <Router>
-                    <Route exact path='/' component={Main}/>
-                    <PrivateRoute path={'/dashboard'} component={SideNavigation}/>
-                    <PrivateRoute path={'/dashboard'} component={TopNavigation}/>
+                    <Route path={''} component={SideNavigation}/>
+                    <Route path={''} component={TopNavigation}/>
+                    <Route exact path={''} component={StoreCourse}/>
                     <Alert/>
                     <Routeer/>
                 </Router>
