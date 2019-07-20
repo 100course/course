@@ -12,7 +12,7 @@ const StoreCourse = ({miniCourses, storeLoading, storecourse, user, loading, min
 
     return( !miniCourseLoading ? (
         <Fragment>
-            {miniCourses.map(item => <MiniCourseStore MiniCourse={item}/>)}
+            {miniCourses.map(item => <MiniCourseStore miniCourse={item}/>)}
         </Fragment> ) : (<Fragment><p>not yet baby!</p></Fragment>)
     );
 };
