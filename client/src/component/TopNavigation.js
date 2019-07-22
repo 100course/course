@@ -31,9 +31,9 @@ dropdownOpen:false
     const IsAuth=
     (
 
-    <MDBNavbar className="flexible-navbar" light expand="md" scrolling>
+    <MDBNavbar className="flexible-navbar position-fixed" light expand="md" scrolling>
         <MDBNavbarBrand href="/">
-            <strong><span>Alpha</span> Courses</strong>
+            <strong className="animated flipInX"><span>Alpha</span> Courses</strong>
         </MDBNavbarBrand>
         <MDBNavbarToggler onClick = { e=>onClick(e) } />
         <MDBCollapse isOpen = { State.collapse } navbar>

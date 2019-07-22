@@ -10,6 +10,7 @@ import store from './store'
 import PrivateRoute from "./component/routing/PrivateR";
 import TopNavigation from "./component/TopNavigation";
 import SideNavigation from "./component/SideNavigation";
+import Slider from './component/Slider'
 import StoreCourse from "./component/StoreCourse"
 import Routeer from './component/Router'
 
@@ -32,10 +33,11 @@ const App = () => {
 
     return (
         <Provider store={store}>
-            <section className="flexible-navbar flexible-content">
+            <section className=" flexible-content">
                 <Router>
-                    <Route path={''} component={SideNavigation}/>
-                    <Route path={''} component={TopNavigation}/>
+                 {/*   <Route path={''} component={SideNavigation}/>*/}
+                   <Route path={''} component={TopNavigation}/>
+                    <Route exact={''} component={Slider}/>
                     <Route exact path={''} component={StoreCourse}/>
                     <Alert/>
                     <Routeer/>

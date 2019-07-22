@@ -33,6 +33,24 @@ main {
   top:0;
   padding-top: 0;
 }
+.style1
+{
+background-image: url('https://mdbootstrap.com/img/Photos/Others/images/77.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.style2
+{
+  background-image: url('https://mdbootstrap.com/img/Photos/Others/images/79.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.style3
+{
+  background-image: url('https://mdbootstrap.com/img/Photos/Others/images/47.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .sidebar-fixed {
    left: 0;
@@ -73,19 +91,8 @@ main {
   padding-left: 270px;
   background: #fff;
 }
-
 #content{
   margin-left: 270px;
-}    
-
-
-.sidebar-fixed .logo-wrapper img{
-  width: 100%;
-  padding: 2.5rem;
-}
-.sidebar-fixed1 .logo-wrapper img{
-  width: 100%;
-  padding: 2.5rem;
 }
 
 .list-group-item {
@@ -200,6 +207,10 @@ main {
 .page-footer{
   margin-left: 270px;
 }
+/*Css Files
+
+ */
+
 
 @media (max-width: 1199.98px) {
   .sidebar-fixed {
