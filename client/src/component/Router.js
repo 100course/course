@@ -31,7 +31,7 @@ const Routeer=()=>
         <Route exact path={'/addvideo'} component={AddVideo}/>
         <Route exact path={'/store'} component={StoreCourse}/>
 
-        <Route path="*" component={NotFound}/>
+        {/*<Route path="*" component={NotFound}/>*/}
 
 
     </Switch>
