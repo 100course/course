@@ -10,6 +10,7 @@ const Slider = () => {
             paddingRight:"0",
             paddingLeft:"0",
             width:"100%",
+            height:'40%'
 
 
 
@@ -23,6 +24,7 @@ const Slider = () => {
                 showControls={true}
                 showIndicators={true}
                 style={style}
+                className="h-50"
             >
                 <MDBCarouselInner>
                     <MDBCarouselItem itemId="1">

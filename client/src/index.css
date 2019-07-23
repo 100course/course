@@ -30,6 +30,7 @@ main {
   color: #2196f3 !important;
 }
 .navbar-fixed {
+  position: fixed;
   top:0;
   padding-top: 0;
 }
