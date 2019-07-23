@@ -19,6 +19,6 @@ export const storecourse = () => async dispatch => {
             payload: res.data
         })
     } catch (err) {
-
+        console.log("got error in storecourse");
     }
 };

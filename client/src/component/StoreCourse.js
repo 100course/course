@@ -3,6 +3,7 @@ import propTypes from 'prop-types';
 import {connect} from "react-redux";
 import {storecourse} from '../actions/storecourse';
 import MiniCourseStore from './MiniCourseStore';
+import MiniCourse from './MiniCourse';
 import {MDBCol, MDBRow} from "mdbreact";
 
 const StoreCourse = ({miniCourses, storeLoading, storecourse, user, loading, miniCourseLoading}) => {
