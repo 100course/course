@@ -18,7 +18,7 @@ const MiniCourseViewStore = (props) => {
     },[]);
     const addCourse = () => {
         if(!props.userLoading){
-            props.addCourseToUser({miniCourseId: id, userId: props.user._id});
+            props.addCourseToUser({miniCourseId: id});
         } else {
             //TODO : pop up login/reg
         }

@@ -3,6 +3,9 @@ const router = express.Router();
 const MiniCourse = require('../../models/miniCourse');
 const cors = require('cors');
 const {check, validationResult} = require('express-validator/check');
+const User = require('../../models/user');
+const auth = require('../../middleware/auth');
+
 
 
 
@@ -67,6 +70,13 @@ router.get('/miniCourseAddToUser/:id', async (req, res) => {
     }
 });
 
+router.post('/addCourseToUser', auth ,async(req, res) => {
+    const miniCourseId = req.body.id;
+    const user = await User.findById(req.user.id);
+    user.miniCourses.push(miniCourseId);
+    console.log(miniCourseId);
+    await user.save();
+});
 
 
 
