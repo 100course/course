@@ -11,7 +11,9 @@ import addMiniCourse from './addMiniCourse';
 import getMiniCourse from './getMiniCourse';
 import FilterCourses from './FilterCourses';
 import Modal from './Modal'
-export default combineReducers({alert, auth, autocomplete, ShowCourse, storecourse, addMiniCourse, getMiniCourse,FilterCourses,Modal});
+import miniCourseDetailStore from './miniCourseDetailStore';
+export default combineReducers({alert, auth, autocomplete, ShowCourse, storecourse, addMiniCourse, getMiniCourse,FilterCourses, miniCourseDetailStore,Modal});
+
 
 
 

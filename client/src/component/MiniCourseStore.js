@@ -3,11 +3,14 @@ import {connect} from "react-redux";
 import propTypes from 'prop-types';
 import '../index.css'
 import {Container, Row} from "react-bootstrap";
+import {Link} from "react-router-dom";
+
 
 const MiniCourseStore = (props) => {
 console.log("MiniCourseStore: ", props);
     let found = props.miniCourse.tags.some(r=> props.filter.indexOf(r) >= 0);
     if (found) {
+        const id = props.miniCourse._id;
         return (
             <Fragment>
                 <Container fluid className="main-content-container px-4 flexible-content">
@@ -20,7 +23,10 @@ console.log("MiniCourseStore: ", props);
                                 <h5 className="card-title">Course Title </h5>
                                 <p className="card-text">a bit Explanation of minicourse
                                 </p>
-                                <a href="#" className="btn btn-primary">Go somewhere</a>
+                                <Link to={{
+                                    pathname:`/MiniCourseViewStore/${id}`,
+                                }} className="btn btn-primary" >
+                                    مشاهده دوره</Link>
                                 {/* {console.log(props.miniCourse.tags)}*/}
                             </div>
                         </div>

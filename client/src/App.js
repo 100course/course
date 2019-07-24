@@ -13,12 +13,13 @@ import SideNavigation from "./component/SideNavigation";
 import Slider from './component/Slider'
 import StoreCourse from "./component/StoreCourse"
 import Routeer from './component/Router'
-
+import Login from './component/Login';
 //redux
 import setAuthToken from "./utils/setAuthToken";
 import {loadUser} from "./actions/auth";
 import {Provider} from 'react-redux';
 
+import MiniCourseViewStore from './component/MiniCourseViewStore';
 
 if (localStorage.token) {
     setAuthToken(localStorage.token);
@@ -35,12 +36,15 @@ const App = () => {
         <Provider store={store}>
             <section className=" flexible-content">
                 <Router>
-                   <Route path={''} component={SideNavigation}/>
-                   <Route path={''} component={TopNavigation}/>
-                    <Route exact={''} component={Slider}/>
-                   <Route exact path={''} component={StoreCourse}/>
+
+                    <Route exact path={'/'} component={SideNavigation}/>
+                    <Route path={''} component={TopNavigation}/>
+                    <Route exact path={'/'} component={Slider}/>
+                    <Route exact path={'/'} component={StoreCourse}/>
+                    <Route path={'/MiniCourseViewStore/:id'} component={MiniCourseViewStore}/>
+                    <Route exact path={'/login'} component={Login}/>
                     <Alert/>
-                    <Routeer/>
+                    <Router/>
                 </Router>
             </section>
 

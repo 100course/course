@@ -1,7 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const MiniCourse = require('../../models/miniCourse');
+const cors = require('cors');
 const {check, validationResult} = require('express-validator/check');
+const User = require('../../models/user');
+const auth = require('../../middleware/auth');
+
 
 
 
@@ -54,6 +58,25 @@ router.post('/add', [
         }
 });
 
+router.get('/miniCourseAddToUser/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const result = await MiniCourse.findById(id);
+        console.log("getting course byd id", result);
+        res.json(result);
+    } catch (err) {
+        console.log("error getting course byd id");
+
+    }
+});
+
+router.post('/addCourseToUser', auth ,async(req, res) => {
+    const miniCourseId = req.body.id;
+    const user = await User.findById(req.user.id);
+    user.miniCourses.push(miniCourseId);
+    console.log(miniCourseId);
+    await user.save();
+});
 
 
 
