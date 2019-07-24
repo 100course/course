@@ -19,12 +19,13 @@ app.use(cookieParser());
 
 app.use(express.json({extended: false}));   //allow us to get data in req.body
 
-app.use(function(req, res, next) {
+app.use( function(req, res, next) {
    res.header("Access-Control-Allow-Origin", "*");
    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-auth-token");
    res.header("Access-Allow-Control-Methods","GET,PUT,POST,DELETE");
    next();
 });
+
 
 app.get("/", (req, res) => {
    res.send("hello there!");
@@ -40,6 +41,7 @@ app.use('/modify', require('./routes/api/modify'));
 app.use ('/search', require('./routes/api/search'));
 app.use('/store', require('./routes/api/storecourse'));
 app.use('/minicourse', require('./routes/api/miniCourse'));
+
 
 
 
