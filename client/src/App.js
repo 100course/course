@@ -35,10 +35,10 @@ const App = () => {
         <Provider store={store}>
             <section className=" flexible-content">
                 <Router>
-           {/*         <Route path={''} component={SideNavigation}/>*/}
+                   <Route path={''} component={SideNavigation}/>
                    <Route path={''} component={TopNavigation}/>
-                    {/*<Route exact={''} component={Slider}/>*/}
-                  {/*  <Route exact path={''} component={StoreCourse}/>*/}
+                    <Route exact={''} component={Slider}/>
+                   <Route exact path={''} component={StoreCourse}/>
                     <Alert/>
                     <Routeer/>
                 </Router>
