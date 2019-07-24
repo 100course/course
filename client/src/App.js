@@ -36,6 +36,7 @@ const App = () => {
         <Provider store={store}>
             <section className=" flexible-content">
                 <Router>
+
                     <Route exact path={'/'} component={SideNavigation}/>
                     <Route path={''} component={TopNavigation}/>
                     <Route exact path={'/'} component={Slider}/>

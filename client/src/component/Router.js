@@ -22,8 +22,6 @@ const Routeer=()=>
         <PrivateRoute exact path={'/courses'} component={Courses}/>
         <PrivateRoute exact path={'/videos'} component={Videos}/>
         <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
-        <Route exact path={'/register'} component={Register}/>
-        <Route exact path={'/login'} component={Login}/>
         <Route exact path={'/addcourse'} component={AddCourse}/>
         <Route exact path={'/modifycourse'} component={ModifyCourse}/>
         <Route exact path={'/addMiniCourse'} component={AddMiniCourse}/>
