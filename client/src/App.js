@@ -19,7 +19,10 @@ import setAuthToken from "./utils/setAuthToken";
 import {loadUser} from "./actions/auth";
 import {Provider} from 'react-redux';
 
+import AddMiniCourse from './component/AddMiniCourse';
+
 import MiniCourseViewStore from './component/MiniCourseViewStore';
+import RowForStore from "./component/RowForStore";
 
 if (localStorage.token) {
     setAuthToken(localStorage.token);
@@ -43,6 +46,7 @@ const App = () => {
                     <Route exact path={'/'} component={StoreCourse}/>
                     <Route path={'/MiniCourseViewStore/:id'} component={MiniCourseViewStore}/>
                     <Route exact path={'/login'} component={Login}/>
+                    <Route exact path={'/AddMiniCourse'} component={AddMiniCourse}/>
                     <Alert/>
                     <Router/>
                 </Router>

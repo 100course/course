@@ -9,7 +9,7 @@ import RowForStore from './RowForStore';
 
 const StoreCourse = ({miniCourses, storeLoading, storecourse, user, loading, miniCourseLoading}) => {
     const [featuredCourses, setFeaturedCourses] = useState({
-        featuredTags: ["all"]
+        featuredTags: ["all2", "all3"]
     });
     useEffect(() => {
         if(storeLoading)
@@ -21,13 +21,13 @@ const StoreCourse = ({miniCourses, storeLoading, storecourse, user, loading, min
                 <MDBRow className="justify-content-center">
 
 
-                    {/*{featuredTags.map(featuredTag => {*/}
-                    {/*    <RowForStore featureTag={featuredTag}/>*/}
-                    {/*})}*/}
+                    {featuredTags.map(featuredTag =>
+                            <RowForStore featureTag={featuredTag} miniCourses={miniCourses}/>
+                    )}
 
-                    {miniCourses.map(item =>
-                        <MDBCol xl="3" md="6" className="mb-3"><MiniCourseStore
-                            miniCourse={item}/></MDBCol>)}
+                    {/*{miniCourses.map(item =>*/}
+                    {/*    <MDBCol xl="3" md="6" className="mb-3"><MiniCourseStore*/}
+                    {/*        miniCourse={item}/></MDBCol>)}*/}
 
 
 
