@@ -5,17 +5,25 @@ import {storecourse} from '../actions/storecourse';
 import MiniCourseStore from './MiniCourseStore';
 import MiniCourse from './MiniCourse';
 import {MDBCol, MDBRow} from "mdbreact";
+import RowForStore from './RowForStore';
 
 const StoreCourse = ({miniCourses, storeLoading, storecourse, user, loading, miniCourseLoading}) => {
-    console.log("BYE")
+    const [featuredCourses, setFeaturedCourses] = useState({
+        featuredTags: ["all"]
+    });
     useEffect(() => {
         if(storeLoading)
             storecourse();
     },[]);
-    return( !miniCourseLoading ? (
+    const {featuredTags} = featuredCourses;
+    return( !storeLoading ? (
             <Fragment>
                 <MDBRow className="justify-content-center">
 
+
+                    {/*{featuredTags.map(featuredTag => {*/}
+                    {/*    <RowForStore featureTag={featuredTag}/>*/}
+                    {/*})}*/}
 
                     {miniCourses.map(item =>
                         <MDBCol xl="3" md="6" className="mb-3"><MiniCourseStore

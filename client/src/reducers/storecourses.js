@@ -16,12 +16,12 @@ export default function (state = initialState, action) {
         case STORE_COURSES:
             return {
             miniCourses: [...state.miniCourses, ...payload],
-            storeLoaded: false
+            storeLoading: false
         };
         default:
             return {
                 ...state,
-                storeLoaded: false
+                storeLoading: true
             };
     }
 }

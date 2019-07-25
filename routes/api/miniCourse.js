@@ -73,9 +73,24 @@ router.get('/miniCourseAddToUser/:id', async (req, res) => {
 router.post('/addCourseToUser', auth ,async(req, res) => {
     const miniCourseId = req.body.id;
     const user = await User.findById(req.user.id);
+    let userHaveCourse = false;
+    user.miniCourses.map(UserMiniCourseId =>
+        {
+            console.log("UserMiniCourseId : ", UserMiniCourseId._id);
+            if(miniCourseId === UserMiniCourseId._id.toString()) {
+                //console.log("in if");
+                userHaveCourse = true;
+                return null;
+            }
+        }
+    );
+    if(!userHaveCourse){
     user.miniCourses.push(miniCourseId);
     console.log(miniCourseId);
     await user.save();
+    } else{
+        return res.json({msg: "you already have this course"});
+    }
 });
 
 

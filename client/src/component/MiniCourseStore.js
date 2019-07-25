@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 
 
 const MiniCourseStore = (props) => {
+    console.log("here in MiniCourseStore");
 console.log("MiniCourseStore: ", props);
     let found = props.miniCourse.tags.some(r=> props.filter.indexOf(r) >= 0);
     if (found) {
