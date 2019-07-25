@@ -5,9 +5,8 @@ import {STORE_COURSES} from "../actions/types";
 const initialState = {
     storeLoading: true,
     miniCourses : [],
-    tags : [
-        "all"
-    ]
+    tags : []
+
 };
 
 export default function (state = initialState, action) {

@@ -7,10 +7,9 @@ import {Link} from "react-router-dom";
 
 
 const MiniCourseStore = (props) => {
-    console.log("here in MiniCourseStore");
-console.log("MiniCourseStore: ", props);
-    let found = props.miniCourse.tags.some(r=> props.filter.indexOf(r) >= 0);
-    if (found) {
+
+    //let found = props.miniCourse.tags.some(r=> props.filter.indexOf(r) >= 0);
+    //if (found) {
         const id = props.miniCourse._id;
         return (
             <Fragment>
@@ -36,9 +35,9 @@ console.log("MiniCourseStore: ", props);
 
             </Fragment>
         );
-    } else {
-        return null;
-    }
+    //} else {
+        //return null;
+    //}
 };
 
 MiniCourseStore.propTypes = {
