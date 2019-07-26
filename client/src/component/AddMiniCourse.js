@@ -19,7 +19,12 @@ const AddMiniCourse = ({addMiniCourse}) => {
     };
     const onSubmit = e => {
         e.preventDefault();
-        addMiniCourse({name, link, subtitle, tags, picture});
+        let tag = tags.split(',');
+        for(let i = 0; i < tag.length; i++){
+            tag[i] = tag[i].trim();
+        }
+        console.log(tag);
+        //addMiniCourse({name, link, subtitle, tags, picture});
     };
 
     return (
