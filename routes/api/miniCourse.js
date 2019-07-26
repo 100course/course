@@ -94,6 +94,34 @@ router.post('/addCourseToUser', auth ,async(req, res) => {
     }
 });
 
+router.get('/name/:name', async (req, res) => {
+
+    const name = req.params.name;
+    console.log("got this name:",name);
+    try{
+        const miniCourse = await MiniCourse.findOne({name});
+        if(!miniCourse)
+            return res.json({errors:[{msg:"no MiniCourse with this name"}]});
+        return res.json(miniCourse);
+    } catch (err) {
+        return res.status(500).json({erros:[{msg:"server error"}]});
+    }
+
+});
+
+router.post('/modify', async (req, res) => {
+    const miniCourseChanges = req.body.miniCourse;
+    const miniCourse = await MiniCourse.findOne({name: miniCourseChanges.MiniCourseName});
+    miniCourse.tags = miniCourseChanges.tags;
+    miniCourse.link = miniCourseChanges.link;
+    miniCourse.subtitle = miniCourseChanges.subtitle;
+    miniCourse.text = miniCourseChanges.text;
+    miniCourse.picture = miniCourseChanges.picture;
+    await miniCourse.save();
+});
+
+
+
 
 
 module.exports = router;

@@ -1,7 +1,7 @@
-import {MODIFY_COURSE} from "../actions/types";
+import {MODIFY_COURSE, LOAD_MODIFY_COURSE} from "../actions/types";
 
 const initialState = {
-    id : ''
+    miniCourse: ''
 };
 
 export default function (state = initialState, action) {
@@ -11,6 +11,11 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 id : payload
+            };
+        case LOAD_MODIFY_COURSE:
+            return {
+                ...state,
+                miniCourse: payload
             };
         default:
             return state;
