@@ -2,8 +2,10 @@ import React, {Fragment, useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from "prop-types";
 import {addMiniCourse} from "../actions/addMiniCourse";
+import alert from "./alert";
+import {setAlert} from "../actions/alert";
 
-const AddMiniCourse = ({addMiniCourse}) => {
+const AddMiniCourse = ({addMiniCourse, id, setAlert}) => {
     const [formData, setFormData] = useState({
         name: '',
         link: '',
@@ -30,8 +32,16 @@ const AddMiniCourse = ({addMiniCourse}) => {
         addMiniCourse({name, link, subtitle, tags:_tag, picture});
     };
 
+    useEffect(() => {
+        if(id !== ''){
+            console.log("here is saving id: ", id);
+            setAlert('saved successfully', 'success');
+        }
+    }, [id]);
+
     return (
         <Fragment>
+            <alert/>
             <form onSubmit={e => onSubmit(e)}>
                 <div>
                     <input type="text" placeholder="name" name="name" value={name} onChange={e => onChange(e)}/>
@@ -61,9 +71,10 @@ const AddMiniCourse = ({addMiniCourse}) => {
 AddMiniCourse.propTypes = {
     id: PropTypes.string.isRequired,
     addMiniCourse: PropTypes.func.isRequired,
+    setAlert: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
     id: state.addMiniCourse.id,
 });
-export default connect(mapStateToProps, {addMiniCourse})(AddMiniCourse);
+export default connect(mapStateToProps, {addMiniCourse, setAlert})(AddMiniCourse);
