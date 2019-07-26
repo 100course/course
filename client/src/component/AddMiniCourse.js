@@ -23,8 +23,11 @@ const AddMiniCourse = ({addMiniCourse}) => {
         for(let i = 0; i < tag.length; i++){
             tag[i] = tag[i].trim();
         }
-        console.log(tag);
-        //addMiniCourse({name, link, subtitle, tags, picture});
+        let _tag = tag.filter(function (item) {
+            return item !== "";
+        });
+        console.log(_tag);
+        addMiniCourse({name, link, subtitle, tags:_tag, picture});
     };
 
     return (
