@@ -5,25 +5,25 @@ import {modifyCourse} from "../actions/modifycourse";
 import {connect} from "react-redux";
 
 
-const ModifyCourse = ({suggestions, autoComplete}) => {
+const ModifyMiniCourse = ({suggestions, autoComplete}) => {
     const [formData, setFormData] = useState({
-        courseName : ''
+        MiniCourseName : ''
     });
-    const {courseName} = formData;
+    const {MiniCourseName} = formData;
     const onSubmit = e => {
         e.preventDefault();
 
     };
-    const onChangeCourseName = e => {
-        setFormData({...formData, [e.target.name]: e.target.value});
-        autoComplete({name: courseName, type: "course"});
+    const onChangeMiniCourseName = e => {
+        setFormData({[e.target.name]: e.target.value});
+        autoComplete({name: e.target.value, type: "MiniCourse"});
     };
 
 
     return(
         <Fragment>
             <form onSubmit={e => onSubmit(e)}>
-                <input type="text" placeholder="coursename" name="courseName" value={courseName} onChange={e => onChangeCourseName(e)}/>
+                <input type="text" placeholder="minicoursename" name="MiniCourseName" value={MiniCourseName} onChange={e => onChangeMiniCourseName(e)}/>
             </form>
             <p>
                 suggestions = {suggestions[0]}
@@ -32,7 +32,7 @@ const ModifyCourse = ({suggestions, autoComplete}) => {
     );
 };
 
-ModifyCourse.propTypes = {
+ModifyMiniCourse.propTypes = {
     suggestions: propTypes.array.isRequired,
     autoComplete: propTypes.func.isRequired
 };
@@ -41,4 +41,4 @@ const mapStateToProps = state => ({
     suggestions: state.autocomplete.suggestions
 });
 
-export default connect(mapStateToProps,{autoComplete})(ModifyCourse);
+export default connect(mapStateToProps,{autoComplete})(ModifyMiniCourse);
