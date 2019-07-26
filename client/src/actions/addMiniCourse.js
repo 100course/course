@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {MINI_COURSE_SAVED, MINI_COURSE_SAVE_FAILED} from "./types";
 
-export const addMiniCourse = ({name, link, subtitle,tags, picture}) => async dispatch => {
+export const addMiniCourse = ({name, link, subtitle,tags, text, picture}) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -12,14 +12,14 @@ export const addMiniCourse = ({name, link, subtitle,tags, picture}) => async dis
         link,
         subtitle,
         tags,
+        text,
         picture,
     };
 
     try {
-        console.log("before");
+
         const res = await axios.post('http://localhost:5000/minicourse/add', body,config);
-        console.log("after");
-        console.log("res : ", res);
+
         dispatch({
             type: MINI_COURSE_SAVED,
             payload: res.data

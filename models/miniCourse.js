@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const MiniCourseSchema = new mongoose.Schema ({
     name : {
         type: String,
-        required : true
+        required: true
     },
     link : {
         type: String,
@@ -11,12 +11,13 @@ const MiniCourseSchema = new mongoose.Schema ({
     },
     subtitle: {
         type: String,
-        required: true
     },
     tags : [String],
+    text : {
+      type: String
+    },
     picture: {
         type: String,
-        required: true
     },
     date: {
         type: Date,

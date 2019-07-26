@@ -11,9 +11,10 @@ const AddMiniCourse = ({addMiniCourse, id, setAlert}) => {
         link: '',
         subtitle: '',
         tags: [],
+        text: '',
         picture: '',
     });
-    const {name, link, subtitle, tags, picture} = formData;
+    const {name, link, subtitle, tags, text, picture} = formData;
     const onChange = (e) => {
 
         setFormData({...formData, [e.target.name]: e.target.value});
@@ -29,7 +30,7 @@ const AddMiniCourse = ({addMiniCourse, id, setAlert}) => {
             return item !== "";
         });
         console.log(_tag);
-        addMiniCourse({name, link, subtitle, tags:_tag, picture});
+        addMiniCourse({name, link, subtitle, tags:_tag, text, picture});
     };
 
     useEffect(() => {
@@ -55,6 +56,9 @@ const AddMiniCourse = ({addMiniCourse, id, setAlert}) => {
                 </div>
                 <div>
                     <input type="text" placeholder="tags" name="tags" value={tags} onChange={e => onChange(e)}/>
+                </div>
+                <div>
+                    <input type="text" placeholder="text" name="text" value={text} onChange={e => onChange(e)}/>
                 </div>
                 <div>
                     <input type="text" placeholder="picture" name="picture" value={picture}

@@ -28,8 +28,7 @@ router.post('/', async (req, res) => {
 
 router.post('/add', [
     check('name', 'Name is required').not().isEmpty(),
-        check('link', 'Link is required').not().isEmpty(),
-        check('picture', 'picture is required').not().isEmpty()
+        check('link', 'Link is required').not().isEmpty()
 ],
     async (req, res) => {
         const errors = validationResult(req);
@@ -37,7 +36,8 @@ router.post('/add', [
             return res.status(400).json({errors: errors.array()});
         }
 
-        const {name, link, subtitle, tags,picture} = req.body;
+        const {name, link, subtitle, tags, text, picture} = req.body;
+
         try {
             let miniCourse = await MiniCourse.findOne({link});
             if(miniCourse){
@@ -48,6 +48,7 @@ router.post('/add', [
                 link,
                 subtitle,
                 tags,
+                text,
                 picture,
             });
             const result = await miniCourse.save();
